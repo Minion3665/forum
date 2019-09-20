@@ -24,3 +24,7 @@ function hexToHSL(hex) {
 	HSL['l']=l;
 	return HSL;
 }
+
+// Function from https://gist.github.com/xenozauros/f6e185c8de2a04cdfecf
+
+export default hexToHSL;
