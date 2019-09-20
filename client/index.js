@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import DisplayBoards from "boards/displayBoards.js";
+import DisplayBoards from "./boards/displayBoards.js";
 
 let buildNumber = 0.25;
 
