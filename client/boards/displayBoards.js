@@ -26,7 +26,7 @@ class DisplayBoards extends Component {
   render() {
     return (
       <React.Fragment>
-				<Board name="all" description="a compilation of all the posts">
+				<Board name="all" description="a compilation of all the posts"/>
 				<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
 			</React.Fragment>
     );
