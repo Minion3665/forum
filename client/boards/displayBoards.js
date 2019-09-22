@@ -30,8 +30,8 @@ const Board = (props) => {
 	}
 	badgeStyle.backgroundColor = bgColor;
 	if (hexToHSL(bgColor).l > 127.5) {
-		badgeStyle.color = "black";
-		badgeStyle.borderColor = "black";
+		badgeStyle.color = "#000000";
+		badgeStyle.borderColor = "#000000";
 	}
 	return (
 		<React.Fragment>
