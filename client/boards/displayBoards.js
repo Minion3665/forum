@@ -5,14 +5,14 @@ let baseBadgeStyle = {
 	color: "#ffffff",
 	backgroundColor: "#000000",
 	border: "1px solid",
-  borderColor: "#ffffff",
+	borderColor: "#ffffff",
 	display: "inlineBlock",
 	borderRadius: "0.25vw",
 	padding: "0.25vw",
 	display: "inline-block",
 	width: "auto",
 	height: "auto",
-}
+};
 
 function Board (props) {
 	let badgeStyle = baseBadgeStyle;
@@ -21,10 +21,12 @@ function Board (props) {
 		bgColor = badgeStyle.backgroundColor;
 	}
 	badgeStyle.backgroundColor = bgColor;
+	console.log(hexToHSL(bgColor).l);
 	if (hexToHSL(bgColor).l > 127.5) {
 		badgeStyle.color = "#000000";
 		badgeStyle.borderColor = "#000000";
 	}
+	console.log(hexToHSL(bgColor).l);
 	return (
 		<React.Fragment>
 			<b style={badgeStyle}>#{props.name.replace(" ", "-")}</b>&nbsp;
