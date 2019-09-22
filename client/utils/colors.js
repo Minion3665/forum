@@ -1,15 +1,15 @@
 function hexToHSL(hex) {
-	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	r = parseInt(result[1], 16);
-	g = parseInt(result[2], 16);
-	b = parseInt(result[3], 16);
+	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	let r = parseInt(result[1], 16);
+	let g = parseInt(result[2], 16);
+	let b = parseInt(result[3], 16);
 	r /= 255, g /= 255, b /= 255;
-	var max = Math.max(r, g, b), min = Math.min(r, g, b);
-	var h, s, l = (max + min) / 2;
+	let max = Math.max(r, g, b), min = Math.min(r, g, b);
+	let h, s, l = (max + min) / 2;
 	if(max == min) {
 		h = s = 0;
 	} else {
-		var d = max - min;
+		let d = max - min;
 		s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
 		switch(max){
 			case r: h = (g - b) / d + (g < b ? 6 : 0); break;
@@ -18,7 +18,7 @@ function hexToHSL(hex) {
 		}
 		h /= 6;
 	}
-	var HSL = new Object();
+	let HSL = new Object();
 	HSL['h']=h;
 	HSL['s']=s;
 	HSL['l']=l;
@@ -26,5 +26,6 @@ function hexToHSL(hex) {
 }
 
 // Function from https://gist.github.com/xenozauros/f6e185c8de2a04cdfecf
+// Modified for react by Minion3665
 
 export default hexToHSL;
