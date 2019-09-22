@@ -26,11 +26,10 @@ const Board = (props) => {
 	let badgeStyle = baseBadgeStyle;
 	let bgColor = props.bgColor;
 	if (typeof bgColor != "string") {
-		console.log(typeof bgColor);
 		bgColor = badgeStyle.backgroundColor;
 	}
 	badgeStyle.backgroundColor = bgColor;
-	if (hexToHSL.l > 127.5) {
+	if (hexToHSL(bgColor).l > 127.5) {
 		badgeStyle.color = "black";
 		badgeStyle.borderColor = "black";
 	}
