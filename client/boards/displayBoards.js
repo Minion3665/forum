@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import hexToHSL from "./../utils/colors.js";
 
-let buildNumber = 0.25;
-
-console.log(
-  "Welcome to the chromebot website. This is client build B." +
-    buildNumber +
-    "."
-);
-
 let baseBadgeStyle = {
 	color: "#ffffff",
 	backgroundColor: "#000000",
@@ -22,7 +14,7 @@ let baseBadgeStyle = {
 	height: "auto",
 }
 
-const Board = (props) => {
+function Board (props) {
 	let badgeStyle = baseBadgeStyle;
 	let bgColor = props.bgColor;
 	if (typeof bgColor != "string") {
@@ -44,7 +36,7 @@ const Board = (props) => {
 class DisplayBoards extends Component {
   render() {
     return (
-      <React.Fragment>
+			<React.Fragment>
 				<Board name="all" description="a compilation of all the posts"/><br/>
 				<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
 			</React.Fragment>
