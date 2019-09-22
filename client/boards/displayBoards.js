@@ -22,34 +22,32 @@ let baseBadgeStyle = {
 	height: "auto",
 }
 
+const Board = (props) => {
+	let badgeStyle = baseBadgeStyle;
+	let bgColor = props.bgColor;
+	if (typeof bgColor != "string") {
+		console.log(typeof bgColor);
+		bgColor = badgeStyle.backgroundColor;
+	}
+	badgeStyle.backgroundColor = bgColor;
+	if (hexToHSL.l > 127.5) {
+		badgeStyle.color = "black";
+		badgeStyle.borderColor = "black";
+	}
+	return (
+		<React.Fragment>
+			<b style={badgeStyle}>#{props.name.replace(" ", "-")}</b>&nbsp;
+			<span>- {props.description}</span>
+		</React.Fragment>
+	);
+}
+
 class DisplayBoards extends Component {
   render() {
     return (
       <React.Fragment>
 				<Board name="all" description="a compilation of all the posts"/><br/>
 				<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
-			</React.Fragment>
-    );
-  }
-}
-
-class Board extends Component {
-  render() {
-		let badgeStyle = baseBadgeStyle;
-		let bgColor = props.bgColor;
-		if (typeof bgColor != "string") {
-			console.log(typeof bgColor);
-			bgColor = badgeStyle.backgroundColor;
-		}
-		badgeStyle.backgroundColor = bgColor;
-		if (hexToHSL.l > 127.5) {
-			badgeStyle.color = "black";
-			badgeStyle.borderColor = "black";
-		}
-    return (
-      <React.Fragment>
-				<b style={badgeStyle}>#{props.name.replace(" ", "-")}</b>&nbsp;
-				<span>- {props.description}</span>
 			</React.Fragment>
     );
   }
