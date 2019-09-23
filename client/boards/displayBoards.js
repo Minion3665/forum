@@ -17,6 +17,8 @@ let baseBadgeStyle = {
 let baseBoardStyle = {
 	margin: "0.5vw",
 	display: "block",
+	width: "auto",
+	height: "auto",
 };
 
 function Board (props) {
