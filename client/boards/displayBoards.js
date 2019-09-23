@@ -7,11 +7,16 @@ let baseBadgeStyle = {
 	border: "1px solid",
 	borderColor: "#ffffff",
 	display: "inlineBlock",
-	borderRadius: "0.25vw",
+	borderRadius: "0.5vw",
 	padding: "0.25vw",
 	display: "inline-block",
 	width: "auto",
 	height: "auto",
+};
+
+let baseBoardStyle = {
+	margin: "0.5vw",
+	display: "block",
 };
 
 function Board (props) {
@@ -29,8 +34,10 @@ function Board (props) {
 	console.log(hexToHSL(bgColor).l);
 	return (
 		<React.Fragment>
-			<b style={badgeStyle}>#{props.name.replace(" ", "-")}</b>&nbsp;
-			<span>- {props.description}</span>
+			<div style={baseBoardStyle}>
+				<b style={badgeStyle}>#{props.name.replace(" ", "-")}</b>&nbsp;
+				<span>- {props.description}</span>
+			</div>
 		</React.Fragment>
 	);
 }
