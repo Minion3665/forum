@@ -22,10 +22,11 @@ let baseBoardStyle = {
 	height: "auto",
 	textDecoration: "none",
 	color: "#000000",
+	borderBottom: "1px solid #000000",
 };
 
 let containerStyle = {
-	border: "3px solid black",
+	border: "3px solid #000000",
 	borderRadius: "1vw",
 	width: "90%",
 	height: "auto",
