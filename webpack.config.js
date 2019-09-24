@@ -31,12 +31,6 @@ var config = {
 			},
 		]
 	},
-	resolve: {
-		alias: {
-			'react-dom$': 'react-dom/profiling',
-			'scheduler/tracing': 'scheduler/tracing-profiling',
-		},
-	},
 };
 
 module.exports = config;
