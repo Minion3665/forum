@@ -18,14 +18,19 @@ let baseBadgeStyle = {
 let baseBoardStyle = {
 	margin: "0.5vw",
 	display: "block",
-	width: "100%",
+	position: "relative",
+	width: "90%",
 	height: "auto",
 	textDecoration: "none",
 	color: "#000000",
 	borderBottom: "1px solid #000000",
+	top: "0",
+	left: "50%",
+	transform: "translate(-50%, 0)",
 };
 
 let containerStyle = {
+	position: "relative",
 	border: "3px solid #000000",
 	borderRadius: "1vw",
 	width: "90%",
