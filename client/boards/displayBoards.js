@@ -19,7 +19,6 @@ let baseBoardStyle = {
 	margin: "0.5vw",
 	display: "block",
 	width: "100%",
-	borderBottom: "1px solid black",
 	height: "auto",
 	textDecoration: "none",
 	color: "#000000",
@@ -29,6 +28,8 @@ let containerStyle = {
 	border: "3px solid black",
 	borderRadius: "1vw",
 	width: "90%",
+	height: "auto",
+	top: "0",
 	left: "50%",
 	transform: "translate(-50%, 0)",
 }
