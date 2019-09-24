@@ -18,11 +18,17 @@ let baseBadgeStyle = {
 let baseBoardStyle = {
 	margin: "0.5vw",
 	display: "block",
-	width: "auto",
+	width: "100%",
+	borderBottom: "1px solid black",
 	height: "auto",
 	textDecoration: "none",
 	color: "#000000",
 };
+
+let containerStyle = {
+	border: "3px solid black",
+	borderRadius: "1vw",
+}
 
 function Board (props) {
 	let badgeStyle = baseBadgeStyle;
@@ -54,8 +60,10 @@ class DisplayBoards extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Board name="all" description="a compilation of all the posts"/>
-				<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
+				<div style={containerStyle}>
+					<Board name="all" description="a compilation of all the posts"/>
+					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
+				</div>
 			</React.Fragment>
 		);
 	}
