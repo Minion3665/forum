@@ -6,7 +6,7 @@ import DisplayBoards from "./boards/displayBoards.js";
 let buildNumber = 0.25;
 
 console.log(
-  "Welcome to the chromebot website. This is client build B." +
+  "Welcome to the forum. This is client build B." +
     buildNumber +
     "."
 );
