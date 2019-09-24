@@ -9,14 +9,14 @@ let baseBadgeStyle = {
 	borderColor: "#ffffff",
 	display: "inlineBlock",
 	borderRadius: "0.5vw",
-	padding: "0.5vw",
+	padding: "0.25vw",
 	display: "inline-block",
 	width: "auto",
 	height: "auto",
 };
 
 let baseBoardStyle = {
-	margin: "0.5vw",
+	padding: "0.5vw",
 	display: "block",
 	position: "relative",
 	width: "90%",
