@@ -19,6 +19,8 @@ let baseBoardStyle = {
 	display: "block",
 	width: "auto",
 	height: "auto",
+	textDecoration: "none",
+	color: "#000000",
 };
 
 function Board (props) {
@@ -34,12 +36,13 @@ function Board (props) {
 		badgeStyle.borderColor = "#000000";
 	}
 	console.log(hexToHSL(bgColor).l);
+	let boardName = props.name.replace(" ", "-");
 	return (
 		<React.Fragment>
-			<div style={baseBoardStyle}>
-				<b style={badgeStyle}>#{props.name.replace(" ", "-")}</b>&nbsp;
+			<a href={"/board/"+boardName} style={baseBoardStyle}>
+				<b style={badgeStyle}>#{boardName}</b>&nbsp;
 				<span>- {props.description}</span>
-			</div>
+			</a>
 		</React.Fragment>
 	);
 }
