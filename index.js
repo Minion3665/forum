@@ -13,7 +13,7 @@ let deleteFolderRecursive = (path) => {
 			} else { // delete file
 				fs.unlinkSync(curPath);
 			}
-		});
+		}
 		fs.rmdirSync(path);
 	}
 };
