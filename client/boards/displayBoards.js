@@ -41,7 +41,7 @@ function Board (props) {
 	return (
 		<React.Fragment>
 			<Router>
-				<Link to="/">//{"/board/"+boardName} style={baseBoardStyle}>
+				<Link to={"/board/"+boardName} style={baseBoardStyle}>
 					<b style={badgeStyle}>#{boardName}</b>&nbsp;
 					<span>- {props.description}</span>
 				</Link>
