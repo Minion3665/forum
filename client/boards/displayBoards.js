@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import hexToHSL from "./../utils/colors.js";
 
 let baseBadgeStyle = {
@@ -39,10 +40,10 @@ function Board (props) {
 	let boardName = props.name.replace(" ", "-");
 	return (
 		<React.Fragment>
-			<a href={"/board/"+boardName} style={baseBoardStyle}>
+			<Link to={"/board/"+boardName} style={baseBoardStyle}>
 				<b style={badgeStyle}>#{boardName}</b>&nbsp;
 				<span>- {props.description}</span>
-			</a>
+			</Link>
 		</React.Fragment>
 	);
 }
