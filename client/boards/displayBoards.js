@@ -28,6 +28,9 @@ let baseBoardStyle = {
 let containerStyle = {
 	border: "3px solid black",
 	borderRadius: "1vw",
+	width: "90%",
+	left: "50%",
+	transform: "translate(-50%, 0)",
 }
 
 function Board (props) {
