@@ -14,7 +14,9 @@ console.log(
 class App extends Component {
   render() {
     return (
-      <DisplayBoards/>
+      <Router>
+        <DisplayBoards/>
+      </Router>
     );
   }
 }
