@@ -6,8 +6,9 @@ let compiler = webpack(webpackconfig);
 
 let deleteFolderRecursive = (path) => {
 	if (fs.existsSync(path)) {
-		for (var id, file in fs.readdirSync(path)) {
-			var curPath = path + "/" + file;
+		var readDir = fs.readdirSync(path);
+		for (var id in readDir) {
+			var curPath = path + "/" + readDir[id];
 			if (fs.lstatSync(curPath).isDirectory()) { // recurse
 				deleteFolderRecursive(curPath);
 			} else { // delete file
