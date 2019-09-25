@@ -28,7 +28,7 @@ compiler.run((err, stats) => {
 	} else {
 		console.log("Deleting node_modules")
 		deleteFolderRecursive("./node_modules");
-		//deleteFolderRecursive("./client"); // Delete client
+		deleteFolderRecursive("./client"); // Delete client
 		console.log("Build finished, ready to deploy...");
 	}
 });
