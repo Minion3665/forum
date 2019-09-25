@@ -16,7 +16,8 @@ let baseBadgeStyle = {
 };
 
 let baseBoardStyle = {
-	padding: "0.5vw",
+	paddingBottom: "0.5vw",
+	margin: "0.5vw",
 	display: "block",
 	position: "relative",
 	width: "90%",
