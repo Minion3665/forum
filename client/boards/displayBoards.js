@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import hexToHSL from "./../utils/colors.js";
+import { getLabels } from "./../utils/conn.js";
 
 let baseBadgeStyle = {
 	color: "#ffffff",
@@ -69,11 +70,27 @@ function Board (props) {
 
 class DisplayBoards extends Component {
 	render() {
+		labels = getLabels();
+		boards = [];
+		labels.forEach((label) => {
+			if (label.name.startsWith("Board:") {
+				label.name = label.name.slice(5);
+				boards.push(label);
+			}
+			
+		}
 		return (
 			<React.Fragment>
 				<div style={containerStyle}>
 					<Board name="all" description="a compilation of all the posts"/>
 					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
+					{
+						Object.keys(boards).map((board) => {
+							return (
+								<Board name={item.name} description={item.description} bgColor={item.color} />
+							); // Create an instance of Board for each board in the forum
+						}
+					}
 				</div>
 			</React.Fragment>
 		);
