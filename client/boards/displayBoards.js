@@ -70,8 +70,8 @@ function Board (props) {
 
 class DisplayBoards extends Component {
 	render() {
-		labels = getLabels();
-		boards = [];
+		let labels = getLabels();
+		let boards = [];
 		labels.forEach((label) => {
 			if (label.name.startsWith("Board:")) {
 				label.name = label.name.slice(5);
