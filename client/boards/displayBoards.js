@@ -73,7 +73,7 @@ class DisplayBoards extends Component {
 		labels = getLabels();
 		boards = [];
 		labels.forEach((label) => {
-			if (label.name.startsWith("Board:") {
+			if (label.name.startsWith("Board:")) {
 				label.name = label.name.slice(5);
 				boards.push(label);
 			}
