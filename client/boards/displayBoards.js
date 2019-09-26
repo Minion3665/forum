@@ -64,7 +64,7 @@ function Board (props) {
 	return (
 		<React.Fragment>
 			<Router>
-				<Link to={"/board/"+boardName} style={baseBoardStyle}>
+				<Link to={"/board/"+encodeURI(boardName)} style={baseBoardStyle}>
 					<b style={badgeStyle}>#{boardName}</b>&nbsp;
 					<span>- {props.description}</span>
 				</Link>
@@ -77,10 +77,14 @@ class DisplayBoards extends Component {
 	render() {
 		let labels = getLabels();
 		let boards = [];
+		let boardNames = [];
 		labels.forEach((label) => {
 			if (label.name.startsWith("Board:")) {
 				label.name = label.name.slice(6);
-				boards.push(label);
+				if (label.name && !encodeURI(label.name) in boardNames) {
+					boards.push(label);
+					boardNames.push(encodeURI(label.name));
+				}
 			}
 			
 		});
