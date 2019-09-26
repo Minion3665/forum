@@ -9,7 +9,7 @@ let baseBadgeStyle = {
 	border: "1px solid",
 	borderColor: "#ffffff",
 	display: "inlineBlock",
-	borderRadius: "1vw",
+	borderRadius: "0.75vw",
 	padding: "0.25vw",
 	display: "inline-block",
 	width: "auto",
@@ -57,7 +57,7 @@ function Board (props) {
 		badgeStyle.borderColor = "#000000";
 	} else {
 		badgeStyle.color = "#ffffff";
-		badgeStyle.borderColor = "#ffffff";
+		badgeStyle.borderColor = "#aaaaaa";
 	}
 	console.log(hexToHSL(bgColor).l);
 	let boardName = props.name.replace(" ", "-");
