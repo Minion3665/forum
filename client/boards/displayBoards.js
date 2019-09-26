@@ -52,7 +52,7 @@ function Board (props) {
 		bgColor = badgeStyle.backgroundColor;
 	}
 	badgeStyle.backgroundColor = bgColor;
-	console.log(hexToHSL(bgColor).l);
+	console.log(hexToHSL(bgColor).l < 0.5);
 	if (hexToHSL(bgColor).l < 0.5) {
 		badgeStyle.color = "#000000";
 		badgeStyle.borderColor = "#000000";
@@ -77,7 +77,7 @@ class DisplayBoards extends Component {
 		let boards = [];
 		labels.forEach((label) => {
 			if (label.name.startsWith("Board:")) {
-				label.name = label.name.slice(5);
+				label.name = label.name.slice(6);
 				boards.push(label);
 			}
 			
