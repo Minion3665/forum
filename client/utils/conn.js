@@ -14,6 +14,7 @@ const axiosGitHubGraphQL = axios.create({
 function getLabels() { // Get all labels in the forum
   return [
     {name: "Board:General", description: "just general posts", color: "#aa0000"},
+    {name: "Board:Casual-Coding", description: "but also casual coding yes", color: "#aa0000"},
     {name: "Board:Casual Coding", description: "just general posts", color: "#9000ff"},
     {name: "Board:Coding Help", description: "just general posts", color: "#18d600"},
     {name: "Board:Minion3665's Testing", description: "just general posts", color: "#aa0000"},

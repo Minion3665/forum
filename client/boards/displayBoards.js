@@ -9,7 +9,7 @@ let baseBadgeStyle = {
 	border: "1px solid",
 	borderColor: "#ffffff",
 	display: "inlineBlock",
-	borderRadius: "0.5vw",
+	borderRadius: "0.75vw",
 	padding: "0.25vw",
 	display: "inline-block",
 	width: "auto",
@@ -43,23 +43,28 @@ let containerStyle = {
 }
 
 function Board (props) {
+	if (!props.name) {
+		return null;
+	}
 	let badgeStyle = baseBadgeStyle;
 	let bgColor = props.bgColor;
 	if (typeof bgColor != "string") {
 		bgColor = badgeStyle.backgroundColor;
 	}
 	badgeStyle.backgroundColor = bgColor;
-	console.log(hexToHSL(bgColor).l);
-	if (hexToHSL(bgColor).l > 0.5) {
+	if (hexToHSL(bgColor).l >= 0.5) {
 		badgeStyle.color = "#000000";
 		badgeStyle.borderColor = "#000000";
+	} else {
+		badgeStyle.color = "#ffffff";
+		badgeStyle.borderColor = "#aaaaaa";
 	}
 	console.log(hexToHSL(bgColor).l);
 	let boardName = props.name.replace(" ", "-");
 	return (
 		<React.Fragment>
 			<Router>
-				<Link to={"/board/"+boardName} style={baseBoardStyle}>
+				<Link to={"/board/"+encodeURI(boardName)} style={baseBoardStyle}>
 					<b style={badgeStyle}>#{boardName}</b>&nbsp;
 					<span>- {props.description}</span>
 				</Link>
@@ -72,10 +77,14 @@ class DisplayBoards extends Component {
 	render() {
 		let labels = getLabels();
 		let boards = [];
+		let boardNames = [];
 		labels.forEach((label) => {
 			if (label.name.startsWith("Board:")) {
-				label.name = label.name.slice(5);
-				boards.push(label);
+				label.name = label.name.slice(6);
+				if (label.name && !(encodeURI(label.name.replace(" ", "-")) in boardNames)) {
+					boards.push(label);
+					boardNames.push(encodeURI(label.name.replace(" ", "-")));
+				}
 			}
 			
 		});
@@ -85,9 +94,10 @@ class DisplayBoards extends Component {
 					<Board name="all" description="a compilation of all the posts"/>
 					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
 					{
-						Object.keys(boards).map((board) => {
+						Object.keys(boards).map((id) => {
+							let board = boards[id];
 							return (
-								<Board name={item.name} description={item.description} bgColor={item.color} />
+								<Board name={board.name} description={board.description} bgColor={board.color} />
 							); // Create an instance of Board for each board in the forum
 						})
 					}
