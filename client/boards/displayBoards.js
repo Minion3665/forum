@@ -9,7 +9,7 @@ let baseBadgeStyle = {
 	border: "1px solid",
 	borderColor: "#ffffff",
 	display: "inlineBlock",
-	borderRadius: "0.5vw",
+	borderRadius: "1vw",
 	padding: "0.25vw",
 	display: "inline-block",
 	width: "auto",
