@@ -63,12 +63,10 @@ function Board (props) {
 	let boardName = props.name.replace(" ", "-");
 	return (
 		<React.Fragment>
-			<Router>
-				<Link to={"/board/"+encodeURI(boardName)} style={baseBoardStyle}>
-					<b style={badgeStyle}>#{boardName}</b>&nbsp;
-					<span>- {props.description}</span>
-				</Link>
-			</Router>
+			<Link to={"/board/"+encodeURI(boardName)} style={baseBoardStyle}>
+				<b style={badgeStyle}>#{boardName}</b>&nbsp;
+				<span>- {props.description}</span>
+			</Link>
 		</React.Fragment>
 	);
 }
