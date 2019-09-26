@@ -89,7 +89,7 @@ class DisplayBoards extends Component {
 							return (
 								<Board name={item.name} description={item.description} bgColor={item.color} />
 							); // Create an instance of Board for each board in the forum
-						}
+						});
 					}
 				</div>
 			</React.Fragment>
