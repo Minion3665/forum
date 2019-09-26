@@ -16,6 +16,10 @@ let base404Style = {
 	height: "auto",
 	textAlign: "center",
 };
+let base404ImageStyle = {
+	width: "100%",
+	height: "auto",
+}
 
 class BoardPosts extends Component {
   constructor(props) {
@@ -36,7 +40,7 @@ class BoardPosts extends Component {
 		if (true) {//(!boardLabel) {
 			return (
 				<div style={base404Style}>
-					<img src="/images/404.gif"/>
+					<img src="/images/404.gif" style={base404ImageStyle}/>
 					<h2>This board wasn't found anywhere... perhaps you should <Link to="/">go back home</Link></h2>
 				</div>
 			);
