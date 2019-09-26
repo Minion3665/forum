@@ -43,6 +43,9 @@ let containerStyle = {
 }
 
 function Board (props) {
+	if (!props.name) {
+		return null;
+	}
 	let badgeStyle = baseBadgeStyle;
 	let bgColor = props.bgColor;
 	if (typeof bgColor != "string") {
