@@ -19,7 +19,6 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path="/board/:board" component={BoardPosts}/>
-          //<Route path="/user/:user" component={User}/>
         </Switch>
         <DisplayBoards/>
       </Router>
