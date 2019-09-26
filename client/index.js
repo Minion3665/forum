@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/board/:board" component={BoardPosts}/>
+        <Route component={BoardPosts}/>
         <DisplayBoards/>
       </Router>
     );
