@@ -78,7 +78,7 @@ class DisplayBoards extends Component {
 				boards.push(label);
 			}
 			
-		}
+		});
 		return (
 			<React.Fragment>
 				<div style={containerStyle}>
