@@ -28,7 +28,7 @@ class BoardPosts extends Component {
 		labels.forEach((label) => {
 			if (label.name.startsWith("Board:")) {
 				label.name = label.name.slice(6);
-				if (label.name && encodeURI(label.name.replace(" ", "-") == board) {
+				if (label.name && encodeURI(label.name.replace(" ", "-")) == board) {
 					boardLabel = label;
 				}
 			}
