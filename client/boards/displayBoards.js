@@ -88,7 +88,7 @@ class DisplayBoards extends Component {
 					<Board name="all" description="a compilation of all the posts"/>
 					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
 					{
-						Object.keys(boards).map((board) => {
+						Object.keys(boards).map((id, board) => {
 							console.log(board)
 							console.log(board.name)
 							return (
