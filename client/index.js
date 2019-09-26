@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route component={BoardPosts}/>
+        <Route exact path="/" component={BoardPosts}/>
         <DisplayBoards/>
       </Router>
     );
