@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route component={BoardPosts}/>
+          <BoardPosts/>
         </Switch>
         <DisplayBoards/>
       </Router>
