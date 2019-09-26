@@ -87,7 +87,7 @@ class DisplayBoards extends Component {
 					{
 						Object.keys(boards).map((board) => {
 							return (
-								<Board name={item.name} description={item.description} bgColor={item.color} />
+								<Board name={board.name} description={board.description} bgColor={board.color} />
 							); // Create an instance of Board for each board in the forum
 						})
 					}
