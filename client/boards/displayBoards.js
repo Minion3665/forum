@@ -53,7 +53,7 @@ function Board (props) {
 	}
 	badgeStyle.backgroundColor = bgColor;
 	console.log(hexToHSL(bgColor).l);
-	if (hexToHSL(bgColor).l > 0.5) {
+	if (hexToHSL(bgColor).l < 0.5) {
 		badgeStyle.color = "#000000";
 		badgeStyle.borderColor = "#000000";
 	}
