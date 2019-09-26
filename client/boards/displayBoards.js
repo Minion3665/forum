@@ -81,7 +81,7 @@ class DisplayBoards extends Component {
 		labels.forEach((label) => {
 			if (label.name.startsWith("Board:")) {
 				label.name = label.name.slice(6);
-				if (label.name && !encodeURI(label.name) in boardNames) {
+				if (label.name && !(encodeURI(label.name) in boardNames)) {
 					boards.push(label);
 					boardNames.push(encodeURI(label.name));
 				}
