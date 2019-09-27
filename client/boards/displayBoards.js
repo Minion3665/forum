@@ -86,7 +86,6 @@ class DisplayBoards extends Component {
 					boardNames.push(encodeURI(label.name.replace(" ", "-")));
 				}
 			}
-			
 		});
 		return (
 			<React.Fragment>
