@@ -35,7 +35,7 @@ class BoardPosts extends Component {
 				}
 			}
 		});
-		if (true) {//(!boardLabel) {
+		if (!boardLabel) {
 			return (
 				<div style={base404Style}>
 					<img src="/images/404.gif" style={base404ImageStyle}/>
@@ -46,18 +46,7 @@ class BoardPosts extends Component {
 		//let labels = getPosts(boardLabel);
 		return (
 			<React.Fragment>
-				<div style={containerStyle}>
-					<Board name="all" description="a compilation of all the posts"/>
-					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
-					{
-						Object.keys(posts).map((id) => {
-							let board = boards[id];
-							return (
-								<Board name={board.name} description={board.description} bgColor={board.color} />
-							); // Create an instance of Board for each board in the forum
-						})
-					}
-				</div>
+				This is a board... And that means nothing yet
 			</React.Fragment>
 		);
 	}
