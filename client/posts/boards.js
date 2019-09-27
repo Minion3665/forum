@@ -27,21 +27,27 @@ class BoardPosts extends Component {
 		let board = this.props.match.params.board;
 		let boardLabel = null;
 		let labels = getLabels();
-		labels.forEach((label) => {
-			if (label.name.startsWith("Board:")) {
-				label.name = label.name.slice(6);
-				if (label.name && encodeURI(label.name.replace(" ", "-")) == board) {
-					boardLabel = label;
+		if (this.props.match.params.board == "all") {
+			// This is for all posts so the boardLabel will be none
+		} else if (this.props.match.params.board == "off-topic") {
+			// This is for off-topic posts. Do stuff here
+		} else {
+			labels.forEach((label) => {
+				if (label.name.startsWith("Board:")) {
+					label.name = label.name.slice(6);
+					if (label.name && encodeURI(label.name.replace(" ", "-")) == board) {
+						boardLabel = label;
+					}
 				}
+			});
+			if (!boardLabel) {
+				return (
+					<div style={base404Style}>
+						<img src="/images/404.gif" style={base404ImageStyle}/>
+						<h2>This board wasn't found anywhere... perhaps you should <Link to="/">go back home</Link></h2>
+					</div>
+				);
 			}
-		});
-		if (!boardLabel) {
-			return (
-				<div style={base404Style}>
-					<img src="/images/404.gif" style={base404ImageStyle}/>
-					<h2>This board wasn't found anywhere... perhaps you should <Link to="/">go back home</Link></h2>
-				</div>
-			);
 		}
 		//let labels = getPosts(boardLabel);
 		return (
