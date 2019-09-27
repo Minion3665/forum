@@ -81,7 +81,7 @@ class DisplayBoards extends Component {
 				label.name = label.name.slice(6);
 				console.log(encodeURI(label.name.replace(" ", "-")))
 				console.log(boardNames)
-				if (label.name && !(encodeURI(label.name.replace(" ", "-")) in boardNames)) {
+				if (label.name && !boardNames.includes(encodeURI(label.name.replace(" ", "-")))) {
 					boards.push(label);
 					boardNames.push(encodeURI(label.name.replace(" ", "-")));
 				}
