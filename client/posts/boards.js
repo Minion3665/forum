@@ -4,21 +4,21 @@ import hexToHSL from "./../utils/colors.js";
 import { getLabels } from "./../utils/conn.js";
 
 let base404Style = {
-	color: "#000000",
-	backgroundColor: "#ffffff",
-	border: "1px solid",
-	borderColor: "#000000",
-	display: "inlineBlock",
-	borderRadius: "5vw",
-	padding: "0.25vw",
-	display: "inline-block",
+	position: "relative",
+	border: "3px solid #000000",
+	borderRadius: "1vw",
 	width: "90%",
 	height: "auto",
+	top: "0",
+	left: "50%",
+	transform: "translate(-50%, 0)",
 	textAlign: "center",
 };
 let base404ImageStyle = {
-	width: "100%",
+	width: "50%",
 	height: "auto",
+	left: "50%",
+	transform: "translate(-50%, 0)",
 }
 
 class BoardPosts extends Component {
