@@ -13,6 +13,7 @@ let base404Style = {
 	left: "50%",
 	transform: "translate(-50%, 0)",
 	textAlign: "center",
+	marginBottom: "2vw",
 };
 let base404ImageStyle = {
 	width: "50%",
