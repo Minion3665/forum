@@ -22,11 +22,11 @@ let base404ImageStyle = {
 }
 
 class BoardPosts extends Component {
-  constructor(props) {
-  	super(props);
-  }
+	constructor(props) {
+  		super(props);
+	}
 	render() {
-		let board = props.match.params.board;
+		let board = this.props.match.params.board;
 		let boardLabel = null;
 		let labels = getLabels();
 		labels.forEach((label) => {
