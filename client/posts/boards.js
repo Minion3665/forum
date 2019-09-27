@@ -64,4 +64,4 @@ class BoardPosts extends Component {
 		);
 	}
 }
-export default boardPosts;
+export default BoardPosts;
