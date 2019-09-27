@@ -17,8 +17,6 @@ let base404Style = {
 let base404ImageStyle = {
 	width: "50%",
 	height: "auto",
-	left: "50%",
-	transform: "translate(-50%, 0)",
 }
 
 class BoardPosts extends Component {
