@@ -42,9 +42,9 @@ function getLabels() { // Get all labels in the forum
 		labels = [];
 		response.data.data.repository.labels.edges.forEach((label) => {
 			labels.push(label.node);
-		};
+		});
 		return labels;
-	})
+	});
 }
 
 export { getLabels };
