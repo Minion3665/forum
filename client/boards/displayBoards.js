@@ -73,37 +73,37 @@ function Board (props) {
 
 class DisplayBoards extends Component {
 	render() {
-		let labels = getLabels();
-		console.log(labels);
-		let boards = [];
-		let boardNames = [];
-		labels.forEach((label) => {
-			if (label.name.startsWith("Board:")) {
-				label.name = label.name.slice(6);
-				console.log(encodeURI(label.name.replace(" ", "-")))
-				console.log(boardNames)
-				if (label.name && !boardNames.includes(encodeURI(label.name.replace(" ", "-")))) {
-					boards.push(label);
-					boardNames.push(encodeURI(label.name.replace(" ", "-")));
-				}
-			}
-		});
-		return (
-			<React.Fragment>
-				<div style={containerStyle}>
-					<Board name="all" description="a compilation of all the posts"/>
-					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
-					{
-						Object.keys(boards).map((id) => {
-							let board = boards[id];
-							return (
-								<Board name={board.name} description={board.description} bgColor={board.color} />
-							); // Create an instance of Board for each board in the forum
-						})
+		return await getLabels().then((labels) => {
+			let boards = [];
+			let boardNames = [];
+			labels.forEach((label) => {
+				if (label.name.startsWith("Board:")) {
+					label.name = label.name.slice(6);
+					console.log(encodeURI(label.name.replace(" ", "-")))
+					console.log(boardNames)
+					if (label.name && !boardNames.includes(encodeURI(label.name.replace(" ", "-")))) {
+						boards.push(label);
+						boardNames.push(encodeURI(label.name.replace(" ", "-")));
 					}
-				</div>
-			</React.Fragment>
-		);
+				}
+			});
+			return (
+				<React.Fragment>
+					<div style={containerStyle}>
+						<Board name="all" description="a compilation of all the posts"/>
+						<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
+						{
+							Object.keys(boards).map((id) => {
+								let board = boards[id];
+								return (
+									<Board name={board.name} description={board.description} bgColor={board.color} />
+								); // Create an instance of Board for each board in the forum
+							})
+						}
+					</div>
+				</React.Fragment>
+			);
+		});
 	}
 }
 
