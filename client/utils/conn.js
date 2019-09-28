@@ -16,9 +16,6 @@ const repo = "forum"
 const GET_LABELS = `{
 	repository(owner:${owner}, name:${repo}) {
 		labels(first:100) {
-			filterBy {
-				labels
-			}
 			edges {
 				node {
 					name,
