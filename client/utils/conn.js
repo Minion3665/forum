@@ -10,12 +10,27 @@ const axiosGitHubGraphQL = axios.create({
   },
 });
 
+const GET_ORGANIZATION = `
+  {
+    organization(login: "the-road-to-learn-react") {
+      name
+      url
+    }
+  }
+`;
+
 function refreshToken() {
   cookie.set("gh-token", cookie.get("gh-token"), { path: "/", maxAge: 604800000 });
 }
 
 function logout() {
   cookie.remove("gh-token")
+}
+
+function getOrg() {
+	axiosGitHubGraphQL
+		.post('', { query: GET_ORGANIZATION })
+		.then(result => console.log(result));
 }
 
 function getLabels() { // Get all labels in the forum
