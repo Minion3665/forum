@@ -16,11 +16,53 @@ const repo = "forum"
 const GET_LABELS = `{
 	repository(owner:${owner}, name:${repo}) {
 		labels(first:100) {
+			filterBy {
+				labels
+			}
 			edges {
 				node {
 					name,
 					description,
 					color
+				}
+			}
+		}
+	}
+}`;
+
+const GET_POSTS = `{
+	repository(owner:${owner}, name:${repo}) {
+		issues(last:100) {
+			edges {
+				node {
+					comments(last:100) {
+						edges {
+							node {
+								author {
+									login,
+									avatarUrl
+								},
+								bodyText,
+								createdAt,
+							}
+						}
+					},
+					labels(first:100) {
+						edges {
+							node {
+								name,
+								color
+							}
+						}
+					},
+					author {
+						login,
+						avatarUrl
+					},
+					title,
+					bodyText,
+					createdAt,
+					locked
 				}
 			}
 		}
@@ -45,6 +87,11 @@ function getLabels() { // Get all labels in the forum
 		});
 		return labels;
 	});
+}
+
+function getPosts() {
+	return axiosGitHubGraphQL
+	.post('', { query: GET_POSTS })
 }
 
 export { getLabels };
