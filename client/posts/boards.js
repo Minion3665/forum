@@ -33,7 +33,7 @@ class BoardPosts extends Component {
 		} else if (this.props.match.params.board == "off-topic") {
 			// This is for off-topic posts. Do stuff here
 		} else {
-			labels.forEach((label) => {
+			/*labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
 					label.name = label.name.slice(6);
 					if (label.name && encodeURI(label.name.replace(" ", "-")) == board) {
@@ -49,7 +49,10 @@ class BoardPosts extends Component {
 					</div>
 				);
 			}
-		}
+		}*/
+		getPosts().then((res) => {
+			console.log(res);
+		})
 		//let labels = getPosts(boardLabel);
 		return (
 			<React.Fragment>
