@@ -10,14 +10,22 @@ const axiosGitHubGraphQL = axios.create({
   },
 });
 
-const GET_ORGANIZATION = `
-  {
-    organization(login: "the-road-to-learn-react") {
-      name
-      url
-    }
-  }
-`;
+const owner = "minion3665"
+const repo = "forum"
+
+const GET_LABELS = `{
+	repository(owner:${owner}, name:${repo}) {
+		labels(first:100) {
+			edges {
+				node {
+					name,
+					description,
+					color
+				}
+			}
+		}
+	}
+}`;
 
 function refreshToken() {
   cookie.set("gh-token", cookie.get("gh-token"), { path: "/", maxAge: 604800000 });
@@ -27,15 +35,9 @@ function logout() {
   cookie.remove("gh-token")
 }
 
-function getOrg() {
-	axiosGitHubGraphQL
-		.post('', { query: GET_ORGANIZATION })
-		.then(result => console.log(result));
-}
-
 function getLabels() { // Get all labels in the forum
 	axiosGitHubGraphQL
-		.post('', { query: GET_ORGANIZATION })
+		.post('', { query: GET_LABELS })
 		.then(result => console.log(result));
   return [
     {name: "Board:General", description: "just general posts", color: "#aa0000"},
