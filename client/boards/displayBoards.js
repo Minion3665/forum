@@ -40,6 +40,7 @@ let containerStyle = {
 	top: "0",
 	left: "50%",
 	transform: "translate(-50%, 0)",
+	transition: "all 2s",
 }
 
 function Board (props) {
@@ -72,10 +73,16 @@ function Board (props) {
 }
 
 class DisplayBoards extends Component {
-	render() {
-		return await getLabels().then((labels) => {
-			let boards = [];
-			let boardNames = [];
+	constructor(props) {
+		super(props);
+		this.state = {
+			boards = null
+		}
+	}
+	getBoards() {
+		let boards = [];
+		let boardNames = [];
+		getLabels().then((labels) => {
 			labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
 					label.name = label.name.slice(6);
@@ -87,23 +94,37 @@ class DisplayBoards extends Component {
 					}
 				}
 			});
-			return (
-				<React.Fragment>
-					<div style={containerStyle}>
-						<Board name="all" description="a compilation of all the posts"/>
-						<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
-						{
-							Object.keys(boards).map((id) => {
-								let board = boards[id];
-								return (
-									<Board name={board.name} description={board.description} bgColor={board.color} />
-								); // Create an instance of Board for each board in the forum
-							})
-						}
-					</div>
-				</React.Fragment>
-			);
+			this.setState({boards: boards});
 		});
+	}
+	componentDidMount() {
+		this.getBoards();
+	}
+	render() {
+		let boards = this.boards;
+		if (boards == null) {
+			<React.Fragment>
+				<div style={containerStyle + {textAlign: "center"}}>
+					<h2>Getting the latest data...</h2>
+				</div>
+			</React.Fragment>
+		}
+		return (
+			<React.Fragment>
+				<div style={containerStyle}>
+					<Board name="all" description="a compilation of all the posts"/>
+					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
+					{
+						Object.keys(boards).map((id) => {
+							let board = boards[id];
+							return (
+								<Board name={board.name} description={board.description} bgColor={board.color} />
+							); // Create an instance of Board for each board in the forum
+						})
+					}
+				</div>
+			</React.Fragment>
+		);
 	}
 }
 
