@@ -34,6 +34,9 @@ function getOrg() {
 }
 
 function getLabels() { // Get all labels in the forum
+	axiosGitHubGraphQL
+		.post('', { query: GET_ORGANIZATION })
+		.then(result => console.log(result));
   return [
     {name: "Board:General", description: "just general posts", color: "#aa0000"},
     {name: "Board:Casual-Coding", description: "but also casual coding yes", color: "#aa0000"},
