@@ -114,7 +114,7 @@ class DisplayBoards extends Component {
 				</React.Fragment>
 			);
 		}
-		containerStyle.textAlign = "initial";
+		containerStyle.textAlign = "left";
 		return (
 			<React.Fragment>
 				<div style={containerStyle}>
