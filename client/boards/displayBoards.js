@@ -82,7 +82,7 @@ class DisplayBoards extends Component {
 	getBoards() {
 		let boards = [];
 		let boardNames = [];
-		let setState = this.setState;
+		let that = this;
 		getLabels().then((labels) => {
 			labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
@@ -95,7 +95,7 @@ class DisplayBoards extends Component {
 					}
 				}
 			});
-			setState({boards: boards});
+			that.setState({boards: boards});
 		});
 	}
 	componentDidMount() {
