@@ -83,6 +83,7 @@ class DisplayBoards extends Component {
 		let boards = [];
 		let boardNames = [];
 		getLabels().then((labels) => {
+			console.log(labels);
 			labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
 					label.name = label.name.slice(6);
