@@ -28,13 +28,11 @@ class BoardPosts extends Component {
 		let board = this.props.match.params.board;
 		let boardLabel = null;
 		let labels = getLabels();
-		if (this.props.match.params.board == "all") {
+		//if (this.props.match.params.board == "all") {
 			// This is for all posts so the boardLabel will be none
-		} else if (this.props.match.params.board == "off-topic") {
+		//} else if (this.props.match.params.board == "off-topic") {
 			// This is for off-topic posts. Do stuff here
-		} else {
-			
-		}
+		//} else {
 			/*labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
 					label.name = label.name.slice(6);
