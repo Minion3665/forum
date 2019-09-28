@@ -5,6 +5,9 @@ const cookie = new Cookies();
 
 const axiosGitHubGraphQL = axios.create({
   baseURL: 'https://api.github.com/graphql',
+  headers: {
+    Authorization: 'bearer '+cookie.get("gh-token"),
+  },
 });
 
 function refreshToken() {
