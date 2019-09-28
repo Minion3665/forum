@@ -7,9 +7,13 @@ const axiosGitHubGraphQL = axios.create({
   baseURL: 'https://api.github.com/graphql',
 });
 
-//cookie.get("gh-token")
-//cookie.set("gh-token", result.token, { path: "/", maxAge: 604800000 });
-//cookie.remove("gh-token")
+function refreshToken() {
+  cookie.set("gh-token", cookie.get("gh-token"), { path: "/", maxAge: 604800000 });
+}
+
+function logout() {
+  cookie.remove("gh-token")
+}
 
 function getLabels() { // Get all labels in the forum
   return [
