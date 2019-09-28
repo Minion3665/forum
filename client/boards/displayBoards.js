@@ -74,6 +74,7 @@ function Board (props) {
 class DisplayBoards extends Component {
 	render() {
 		let labels = getLabels();
+		console.log(labels);
 		let boards = [];
 		let boardNames = [];
 		labels.forEach((label) => {
