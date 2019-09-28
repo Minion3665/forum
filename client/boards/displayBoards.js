@@ -82,7 +82,6 @@ class DisplayBoards extends Component {
 	getBoards() {
 		let boards = [];
 		let boardNames = [];
-		let that = this;
 		getLabels().then((labels) => {
 			labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
@@ -95,14 +94,14 @@ class DisplayBoards extends Component {
 					}
 				}
 			});
-			that.setState({boards: boards});
+			this.setState({boards: boards});
 		});
 	}
 	componentDidMount() {
 		this.getBoards();
 	}
 	render() {
-		let boards = this.boards;
+		let boards = this.state.boards;
 		if (!boards) {
 			containerStyle.textAlign = "center";
 			return (
