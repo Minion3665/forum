@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import hexToHSL from "./../utils/colors.js";
-import { getLabels } from "./../utils/conn.js";
+import { getLabels, getPosts } from "./../utils/conn.js";
 
 let base404Style = {
 	position: "relative",
