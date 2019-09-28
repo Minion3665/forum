@@ -38,9 +38,6 @@ function logout() {
 function getLabels() { // Get all labels in the forum
 	return axiosGitHubGraphQL
 	.post('', { query: GET_LABELS })
-	.then((result) => {
-		return result.data.data.repository.edges;
-	});
 }
 
 export { getLabels };
