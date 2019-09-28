@@ -76,7 +76,7 @@ class DisplayBoards extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			boards = null
+			boards: null
 		}
 	}
 	getBoards() {
