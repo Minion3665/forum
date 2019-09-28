@@ -39,7 +39,7 @@ function getLabels() { // Get all labels in the forum
 	return axiosGitHubGraphQL
 	.post('', { query: GET_LABELS })
 	.then((response) => {
-		labels = [];
+		let labels = [];
 		response.data.data.repository.labels.edges.forEach((label) => {
 			labels.push(label.node);
 		});
