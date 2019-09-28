@@ -104,17 +104,14 @@ class DisplayBoards extends Component {
 	render() {
 		let boards = this.state.boards;
 		if (!boards) {
-			let newContainerStyle = containerStyle;
-			newContainerStyle.textAlign = "center";
 			return (
 				<React.Fragment>
-					<div style={newContainerStyle}>
-						<h2>Getting the latest data...</h2>
+					<div style={containerStyle}>
+						<h2 style={{textAlign: "center"}}>Getting the latest data...</h2>
 					</div>
 				</React.Fragment>
 			);
 		}
-		containerStyle.textAlign = "left";
 		return (
 			<React.Fragment>
 				<div style={containerStyle}>
