@@ -30,6 +30,10 @@ let basePFPImageStyle = {
 	display: "inlineBlock",
 	paddingRight: "1vw",
 }
+let baseFooterStyle = {
+	color: "#777777",
+	fontSize: "1vw",
+}
 
 class Post extends Component {
 	constructor(props) {
@@ -41,7 +45,8 @@ class Post extends Component {
 			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
 			<span style={baseTitleStyle}>{this.props.title}</span>{" "}
 			<span style={baseUserdataStyle}>by {this.props.author} at {this.props.timestamp}</span><br/>
-			<span style={baseBodyStyle}>{this.props.body}</span>
+			<span style={baseBodyStyle}>{this.props.body}</span><br/>
+			<span style={baseFooterStyle}>{this.props.comments.length} comments - {this.props.tags.length} tags</span>
 			</div>
 		);
 	}
