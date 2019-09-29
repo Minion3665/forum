@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import hexToHSL from "./../utils/colors.js";
 import { getLabels, getPosts } from "./../utils/conn.js";
+import Post from "./post.js";
 
 let base404Style = {
 	position: "relative",
@@ -56,7 +57,13 @@ class BoardPosts extends Component {
 		//let labels = getPosts(boardLabel);
 		return (
 			<React.Fragment>
-				This is a board... And that means nothing yet
+				<Post author="Minion3665"
+					author_pfp="https://avatars2.githubusercontent.com/u/34243578?v=4"
+					title="Hello World!"
+					body="Well hello and welcome to the new forum @everyone. This is going to be great! 🎉"
+					timestamp="2019-09-18T16:54:13Z"
+					comments={[]}
+					tags=[]
 			</React.Fragment>
 		);
 	}
