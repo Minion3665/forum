@@ -27,7 +27,8 @@ let baseBodyStyle = {
 }
 let basePFPImageStyle = {
 	width: "3vw",
-	display: "inlineBlock",
+	borderRadius: "3vw",
+	display: "inline-block",
 	paddingRight: "1vw",
 }
 let baseFooterStyle = {
