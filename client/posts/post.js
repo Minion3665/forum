@@ -36,9 +36,11 @@ let basePFPImageStyle = {
 }
 let baseFooterStyle = {
 	color: "#777777",
-	fontSize: "1.5vw",
-	paddingLeft: "3vw",
-	paddingRight: "3vw",
+	fontSize: "1.25vw",
+	paddingLeft: "1vw",
+	paddingRight: "1vw",
+	paddingTop: "1vw",
+	display: "inline-block",
 }
 
 class Post extends Component {
