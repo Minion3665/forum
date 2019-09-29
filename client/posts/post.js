@@ -16,10 +16,12 @@ let basePostStyle = {
 let baseTitleStyle = {
 	fontSize: "3vw",
 	color: "#000000",
+	verticalAlign: "top",
 }
 let baseUserdataStyle = {
 	fontSize: "2vw",
 	color: "#000000",
+	verticalAlign: "top",
 }
 let baseBodyStyle = {
 	fontSize: "2vw",
@@ -29,11 +31,14 @@ let basePFPImageStyle = {
 	width: "3vw",
 	borderRadius: "3vw",
 	display: "inline-block",
-	paddingRight: "1vw",
+	marginRight: "1vw",
+	verticalAlign: "baseline",
 }
 let baseFooterStyle = {
 	color: "#777777",
-	fontSize: "1vw",
+	fontSize: "1.5vw",
+	paddingLeft: "3vw",
+	paddingRight: "3vw",
 }
 
 class Post extends Component {
