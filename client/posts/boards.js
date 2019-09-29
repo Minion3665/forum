@@ -63,7 +63,8 @@ class BoardPosts extends Component {
 					body="Well hello and welcome to the new forum @everyone. This is going to be great! 🎉"
 					timestamp="2019-09-18T16:54:13Z"
 					comments={[]}
-					tags=[]
+					tags={[]}
+				/>
 			</React.Fragment>
 		);
 	}
