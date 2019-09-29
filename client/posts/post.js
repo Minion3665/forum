@@ -3,7 +3,7 @@ import React, { Component } from "react";
 let basePostStyle = {
 	position: "relative",
 	borderLeft: "2vw solid #000000",
-  boxSizing: "borderBox"
+	boxSizing: "borderBox"
 	width: "85%",
 	height: "auto",
 	top: "0",
@@ -22,9 +22,9 @@ class Post extends Component {
   	super(props);
 	}
 	render() {
-    return() {
-      <div style={basePostStyle}>This is a post... and that means nothing yet</div>
-    }
-	};
+		return() (
+			<div style={basePostStyle}>This is a post... and that means nothing yet</div>
+		);
+	}
 }
 export default Post;
