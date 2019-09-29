@@ -10,6 +10,8 @@ let basePostStyle = {
 	left: "50%",
 	transform: "translate(-50%, 0)",
 	marginBottom: "2vw",
+	backgroundColor: "#bababa",
+	padding: "1vw",
 };
 let baseTitleStyle = {
 	fontSize: "3vw",
