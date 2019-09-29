@@ -11,7 +11,7 @@ let basePostStyle = {
 	transform: "translate(-50%, 0)",
 	marginBottom: "2vw",
 	backgroundColor: "#bababa",
-	padding: "1vw",
+	padding: "2vw",
 };
 let baseTitleStyle = {
 	fontSize: "3vw",
@@ -28,6 +28,7 @@ let baseBodyStyle = {
 let basePFPImageStyle = {
 	width: "3vw",
 	display: "inlineBlock",
+	paddingRight: "1vw",
 }
 
 class Post extends Component {
