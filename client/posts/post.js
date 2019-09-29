@@ -52,7 +52,7 @@ class Post extends Component {
 			<div style={basePostStyle}>
 			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
 			<span style={baseTitleStyle}>{this.props.title}</span>{" "}
-			<span style={baseUserdataStyle}>by {this.props.author} at {Date(this.props.timestamp).toLocaleString()+" "+Intl.DateTimeFormat().resolvedOptions().timeZone}</span><br/>
+			<span style={baseUserdataStyle}>by {this.props.author} at {Date(this.props.timestamp).toLocaleString() + " (" + Date(this.props.timestamp).toUTCString() + " UTC)"}</span><br/>
 			<span style={baseBodyStyle}>{this.props.body}</span><br/>
 			<span style={baseFooterStyle}>{this.props.comments.length} comments - {this.props.tags.length} tags</span>
 			</div>
