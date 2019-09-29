@@ -22,7 +22,7 @@ class Post extends Component {
   	super(props);
 	}
 	render() {
-		return() (
+		return (
 			<div style={basePostStyle}>This is a post... and that means nothing yet</div>
 		);
 	}
