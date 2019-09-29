@@ -9,21 +9,37 @@ let basePostStyle = {
 	top: "0",
 	left: "50%",
 	transform: "translate(-50%, 0)",
-	textAlign: "center",
 	marginBottom: "2vw",
 };
-let base404ImageStyle = {
-	width: "50%",
-	height: "auto",
+let baseTitleStyle = {
+	fontSize: "3vw",
+	color: "#000000",
+}
+let baseUserdataStyle = {
+	fontSize: "2vw",
+	color: "#000000",
+}
+let baseBodyStyle = {
+	fontSize: "2vw",
+	color: "#555555",
+}
+let basePFPImageStyle = {
+	width: "3vw",
+	display: "inlineBlock",
 }
 
 class Post extends Component {
 	constructor(props) {
-  	super(props);
+  		super(props);
 	}
 	render() {
 		return (
-			<div style={basePostStyle}>This is a post... and that means nothing yet</div>
+			<div style={basePostStyle}>
+			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
+			<span style={baseTitleStyle}>{this.props.title}</span>{" "}
+			<span style={baseUserdataStyle}>by {this.props.author} at {this.props.timestamp}</span><br/>
+			<span style={baseBodyStyle}>{this.props.body}</span>
+			</div>
 		);
 	}
 }
