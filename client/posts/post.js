@@ -3,7 +3,7 @@ import React, { Component } from "react";
 let basePostStyle = {
 	position: "relative",
 	borderLeft: "2vw solid #000000",
-	boxSizing: "borderBox"
+	boxSizing: "borderBox",
 	width: "85%",
 	height: "auto",
 	top: "0",
