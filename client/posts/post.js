@@ -61,7 +61,7 @@ class Post extends Component {
   		super(props);
 	}
 	render() {
-		comments = []
+		let comments = []
 		this.props.comments.forEach((comment) => {
 			comments.unshift({
 				timestamp: comment.node.createdAt,
