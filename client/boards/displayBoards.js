@@ -98,7 +98,7 @@ class DisplayBoards extends Component {
 			});
 			this.setState({boards: boards});
 		}).catch((error) => {
-			console.log(error);
+			console.log({error: error});
 		});
 	}
 	componentDidMount() {
