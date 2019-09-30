@@ -115,7 +115,7 @@ class Comment extends Component {
 			<div style={baseCommentStyle}>
 			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
 			<span style={baseUserdataStyle}>{this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
-			<span style={baseBodyStyle} dangerouslySetInnerHTML={{__html: this.props.body]}/></span>
+			<span style={baseBodyStyle} dangerouslySetInnerHTML={{__html: this.props.body}}/></span>
 			</div>
 		);
 	}
