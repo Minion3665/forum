@@ -40,7 +40,7 @@ class BoardPosts extends Component {
 					author: issue.node.author.login,
 					author_pfp: issue.node.author.avatarUrl,
 				});
-			}
+			});
 			this.setState({posts: posts});
 		});
 	}
