@@ -54,7 +54,17 @@ class Post extends Component {
 			<span style={baseTitleStyle}>{this.props.title}</span>{" "}
 			<span style={baseUserdataStyle}>by {this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
 			<span style={baseBodyStyle}>{this.props.body}</span><br/>
-			<span style={baseFooterStyle}>{this.props.comments.length} comments - {this.props.tags.length} tags</span>
+			<span style={baseFooterStyle}>{this.props.comments.length} comment{() => {
+				if (this.props.comments.length == 1) {
+					return "s";
+				}
+				return null;
+			}} - {this.props.tags.length} tag{() => {
+				if (this.props.tags.length == 1) {
+					return "s";
+				}
+				return null;
+			}}</span>
 			</div>
 		);
 	}
