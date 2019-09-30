@@ -71,41 +71,41 @@ class Post extends Component {
 			});
 		});
 		return (
-			<div style={basePostStyle}>
-			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
-			<span style={baseTitleStyle}>{this.props.title}</span>{" "}
-			<span style={baseUserdataStyle}>by {this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
-			<span style={baseBodyStyle}>{this.props.body}</span><br/>
-			<span style={baseFooterStyle}>{this.props.comments.length} comment
-			{() => {
-				if (this.props.comments.length == 1) {
-					return null;
+			<React.Fragment>
+				<div style={basePostStyle}>
+				<img style={basePFPImageStyle} src={this.props.author_pfp}/>
+				<span style={baseTitleStyle}>{this.props.title}</span>{" "}
+				<span style={baseUserdataStyle}>by {this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
+				<span style={baseBodyStyle}>{this.props.body}</span><br/>
+				<span style={baseFooterStyle}>{this.props.comments.length} comment
+				{() => {
+					if (this.props.comments.length == 1) {
+						return null;
+					}
+					return "s";
+				}}
+				- {this.props.tags.length} tag
+				{() => {
+					if (this.props.tags.length == 1) {
+						return null;
+					}
+					return "s";
+				}}
+				</span></div>
+				{
+					Object.keys(comments).map((id) => {
+						let comment = comments[id];
+						return (
+							<Comment
+								author={comment.author}
+								author_pfp={comment.author_pfp}
+								body={comment.content}
+								timestamp={comment.timestamp}
+							/>
+						);
+					})
 				}
-				return "s";
-			}
-			}
-			- {this.props.tags.length} tag
-			{() => {
-				if (this.props.tags.length == 1) {
-					return null;
-				}
-				return "s";
-			}
-			}
-			</span></div>,
-			{
-				Object.keys(comments).map((id) => {
-					let comment = comments[id];
-					return (
-						<Comment
-							author={comment.author}
-							author_pfp={comment.author_pfp}
-							body={comment.content}
-							timestamp={comment.timestamp}
-						/>
-					);
-				})
-			}
+			</React.Fragment>
 		);
 	}
 }
