@@ -76,29 +76,35 @@ class Post extends Component {
 			<span style={baseTitleStyle}>{this.props.title}</span>{" "}
 			<span style={baseUserdataStyle}>by {this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
 			<span style={baseBodyStyle}>{this.props.body}</span><br/>
-			<span style={baseFooterStyle}>{this.props.comments.length} comment{() => {
+			<span style={baseFooterStyle}>{this.props.comments.length} comment
+			{() => {
 				if (this.props.comments.length == 1) {
-					return "s";
+					return null;
 				}
-				return null;
-			}} - {this.props.tags.length} tag{() => {
+				return "s";
+			}
+			}
+			- {this.props.tags.length} tag
+			{() => {
 				if (this.props.tags.length == 1) {
-					return "s";
+					return null;
 				}
-				return null;
-			}}</span></div>
-			test text
-			{Object.keys(comments).map((id) => {
-				let comment = comments[id];
-				return (
-					<Comment
-						author={comment.author}
-						author_pfp={comment.author_pfp}
-						body={comment.content}
-						timestamp={comment.timestamp}
-					/>
-				);
-			})}
+				return "s";
+			}
+			}</span></div>
+			{
+				Object.keys(comments).map((id) => {
+					let comment = comments[id];
+					return (
+						<Comment
+							author={comment.author}
+							author_pfp={comment.author_pfp}
+							body={comment.content}
+							timestamp={comment.timestamp}
+						/>
+					);
+				})
+			}
 		);
 	}
 }
