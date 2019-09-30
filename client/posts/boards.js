@@ -24,11 +24,30 @@ let base404ImageStyle = {
 class BoardPosts extends Component {
 	constructor(props) {
   		super(props);
+		this.state = {posts: null};
+	}
+	componentDidMount() {
+		getPosts().then((res) => {
+			posts = [];
+			res.data.data.repository.issues.edges.forEach((issue) => {
+				posts.unshift({
+					title: issue.node.title,
+					content: issue.node.bodyText,
+					locked: issue.node.locked,
+					timestamp: issue.node.createdAt,
+					comments: issue.node.comments,
+					tags: issue.node.labels,
+					author: issue.node.author.login,
+					author_pfp: issue.node.author.avatarUrl,
+				});
+			}
+			this.setState({posts: posts});
+		});
 	}
 	render() {
 		let board = this.props.match.params.board;
 		let boardLabel = null;
-		let labels = getLabels();
+		//let labels = getLabels();
 		//if (this.props.match.params.board == "all") {
 			// This is for all posts so the boardLabel will be none
 		//} else if (this.props.match.params.board == "off-topic") {
@@ -51,22 +70,33 @@ class BoardPosts extends Component {
 				);
 			}
 		}*/
-		getPosts().then((res) => {
-			console.log(res);
-		});
 		//let labels = getPosts(boardLabel);
-		return (
-			<React.Fragment>
-				<Post author="Minion3665"
-					author_pfp="https://avatars2.githubusercontent.com/u/34243578?v=4"
-					title="Hello World!"
-					body="Well hello and welcome to the new forum @everyone. This is going to be great! 🎉"
-					timestamp="2019-09-18T16:54:13Z"
-					comments={[]}
-					tags={[]}
-				/>
-			</React.Fragment>
-		);
+		let posts = this.state.posts;
+		if (!posts) {
+			return null;
+		} else {
+			return (
+				<React.Fragment>
+					{
+						Object.keys(posts).map((id) => {
+							let post = posts[id];
+							return (
+								<Post
+									author={post.author}
+									author_pfp={post.author_pfp}
+									title={post.title}
+									body={post.content}
+									timestamp={post.timestamp}
+									comments={post.comments}
+									tags={post.tags}
+									locked={post.locked}
+								/>
+							);
+						})
+					}
+				</React.Fragment>
+			);
+		}
 	}
 }
 export default BoardPosts;
