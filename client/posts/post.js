@@ -87,6 +87,7 @@ class Post extends Component {
 				}
 				return null;
 			}}</span></div>
+			test text
 			{Object.keys(comments).map((id) => {
 				let comment = comments[id];
 				return (
