@@ -79,7 +79,6 @@ class Post extends Component {
 				<span style={baseBodyStyle}>{this.props.body}</span><br/>
 				<span style={baseFooterStyle}>{this.props.comments.length} comment
 				{() => {
-					console.log(this.props.comments.length == 1)
 					if (this.props.comments.length == 1) {
 						return null;
 					} else {
@@ -88,7 +87,6 @@ class Post extends Component {
 				}}
 				{" "}- {this.props.tags.length} tag
 				{() => {
-					console.log(this.props.tags.length == 1)
 					if (this.props.tags.length == 1) {
 						return null;
 					} else {
