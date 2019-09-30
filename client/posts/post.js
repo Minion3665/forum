@@ -79,17 +79,21 @@ class Post extends Component {
 				<span style={baseBodyStyle}>{this.props.body}</span><br/>
 				<span style={baseFooterStyle}>{this.props.comments.length} comment
 				{() => {
+					console.log(this.props.comments.length == 1)
 					if (this.props.comments.length == 1) {
 						return null;
+					} else {
+						return "s";
 					}
-					return "s";
 				}}
-				- {this.props.tags.length} tag
+				{" "}- {this.props.tags.length} tag
 				{() => {
+					console.log(this.props.tags.length == 1)
 					if (this.props.tags.length == 1) {
 						return null;
+					} else {
+						return "s";
 					}
-					return "s";
 				}}
 				</span></div>
 				{
