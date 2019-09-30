@@ -70,6 +70,14 @@ class Post extends Component {
 				content: comment.node.bodyText,
 			});
 		});
+		let commentsSuffix = "";
+		let tagsSuffix = "";
+		if (this.props.comments.length != 1) {
+			commentsSuffix = "s";
+		}
+		if (this.props.tags.length != 1) {
+			tagsSuffix = "s";
+		}
 		return (
 			<React.Fragment>
 				<div style={basePostStyle}>
@@ -77,22 +85,8 @@ class Post extends Component {
 				<span style={baseTitleStyle}>{this.props.title}</span>{" "}
 				<span style={baseUserdataStyle}>by {this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
 				<span style={baseBodyStyle}>{this.props.body}</span><br/>
-				<span style={baseFooterStyle}>{this.props.comments.length} comment
-				{() => {
-					if (this.props.comments.length == 1) {
-						return null;
-					} else {
-						return "s";
-					}
-				}}
-				{" "}- {this.props.tags.length} tag
-				{() => {
-					if (this.props.tags.length == 1) {
-						return null;
-					} else {
-						return "s";
-					}
-				}}
+				<span style={baseFooterStyle}>{this.props.comments.length} comment{commentsSuffix}
+				{" "}- {this.props.tags.length} tag{tagsSuffix}
 				</span></div>
 				{
 					Object.keys(comments).map((id) => {
