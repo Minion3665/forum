@@ -67,7 +67,7 @@ class Post extends Component {
 				timestamp: comment.node.createdAt,
 				author: comment.node.author.login,
 				author_pfp: comment.node.author.avatarUrl,
-				content: comment.node.bodyText,
+				content: comment.node.bodyHTML,
 			});
 		});
 		let commentsSuffix = "";
