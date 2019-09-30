@@ -28,7 +28,7 @@ class BoardPosts extends Component {
 	}
 	componentDidMount() {
 		getPosts().then((res) => {
-			posts = [];
+			let posts = [];
 			res.data.data.repository.issues.edges.forEach((issue) => {
 				posts.unshift({
 					title: issue.node.title,
