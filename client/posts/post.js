@@ -27,6 +27,19 @@ let baseBodyStyle = {
 	fontSize: "2vw",
 	color: "#555555",
 }
+let baseCommentStyle = {
+	position: "relative",
+	borderLeft: "2vw solid #000000",
+	boxSizing: "borderBox",
+	width: "75%",
+	height: "auto",
+	top: "0",
+	left: "50%",
+	transform: "translate(-45%, 0)",
+	marginBottom: "2vw",
+	backgroundColor: "#bababa",
+	padding: "2vw",
+}
 let basePFPImageStyle = {
 	width: "3vw",
 	borderRadius: "3vw",
@@ -48,6 +61,15 @@ class Post extends Component {
   		super(props);
 	}
 	render() {
+		comments = []
+		this.props.comments.forEach((comment) => {
+			comments.unshift({
+				timestamp: comment.node.createdAt,
+				author: comment.node.author.login,
+				author_pfp: comment.node.author.avatarUrl,
+				content: comment.node.bodyText,
+			})
+		}
 		return (
 			<div style={basePostStyle}>
 			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
@@ -65,8 +87,35 @@ class Post extends Component {
 				}
 				return null;
 			}}</span>
+			{Object.keys(comments).map((id) => {
+				let comment = comments[id];
+				return (
+					<Comment
+						author={comment.author}
+						author_pfp={comment.author_pfp}
+						body={comment.content}
+						timestamp={comment.timestamp}
+					/>
+				);
+			})}
 			</div>
 		);
 	}
 }
+
+class Comment extends Component {
+	constructor(props) {
+  		super(props);
+	}
+	render() {
+		return (
+			<div style={baseCommentStyle}>
+			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
+			<span style={baseUserdataStyle}>{this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
+			<span style={baseBodyStyle}>{this.props.body}</span>
+			</div>
+		);
+	}
+}
+
 export default Post;
