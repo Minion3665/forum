@@ -68,7 +68,7 @@ class Post extends Component {
 				author: comment.node.author.login,
 				author_pfp: comment.node.author.avatarUrl,
 				content: comment.node.bodyText,
-			})
+			});
 		});
 		return (
 			<div style={basePostStyle}>
@@ -87,19 +87,17 @@ class Post extends Component {
 				}
 				return null;
 			}}</span></div>
-			{
-				Object.keys(comments).map((id) => {
-					let comment = comments[id];
-					return (
-						<Comment
-							author={comment.author}
-							author_pfp={comment.author_pfp}
-							body={comment.content}
-							timestamp={comment.timestamp}
-						/>
-					);
-				})
-			}
+			{Object.keys(comments).map((id) => {
+				let comment = comments[id];
+				return (
+					<Comment
+						author={comment.author}
+						author_pfp={comment.author_pfp}
+						body={comment.content}
+						timestamp={comment.timestamp}
+					/>
+				);
+			})}
 		);
 	}
 }
