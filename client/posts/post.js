@@ -84,7 +84,7 @@ class Post extends Component {
 				<img style={basePFPImageStyle} src={this.props.author_pfp}/>
 				<span style={baseTitleStyle}>{this.props.title}</span>{" "}
 				<span style={baseUserdataStyle}>by {this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
-				<span style={baseBodyStyle}>{this.props.body}</span><br/>
+				<span style={baseBodyStyle} dangerouslySetInnerHTML={__html: this.props.body}/><br/>
 				<span style={baseFooterStyle}>{this.props.comments.length} comment{commentsSuffix}
 				{" "}- {this.props.tags.length} tag{tagsSuffix}
 				</span></div>
@@ -115,7 +115,7 @@ class Comment extends Component {
 			<div style={baseCommentStyle}>
 			<img style={basePFPImageStyle} src={this.props.author_pfp}/>
 			<span style={baseUserdataStyle}>{this.props.author} at {new Date(this.props.timestamp).toLocaleString()}</span><br/>
-			<span style={baseBodyStyle}>{this.props.body}</span>
+			<span style={baseBodyStyle} dangerouslySetInnerHTML={__html: this.props.body}/></span>
 			</div>
 		);
 	}
