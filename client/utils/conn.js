@@ -39,7 +39,7 @@ const GET_POSTS = `{
 									login,
 									avatarUrl
 								},
-								bodyText,
+								bodyHTML,
 								createdAt,
 							}
 						}
@@ -57,7 +57,7 @@ const GET_POSTS = `{
 						avatarUrl
 					},
 					title,
-					bodyText,
+					bodyHTML,
 					createdAt,
 					locked
 				}
