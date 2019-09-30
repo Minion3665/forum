@@ -35,8 +35,8 @@ class BoardPosts extends Component {
 					content: issue.node.bodyText,
 					locked: issue.node.locked,
 					timestamp: issue.node.createdAt,
-					comments: issue.node.comments,
-					tags: issue.node.labels,
+					comments: issue.node.comments.edges,
+					tags: issue.node.labels.edges,
 					author: issue.node.author.login,
 					author_pfp: issue.node.author.avatarUrl,
 				});
