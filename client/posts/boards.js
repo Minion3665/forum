@@ -32,7 +32,7 @@ class BoardPosts extends Component {
 			res.data.data.repository.issues.edges.forEach((issue) => {
 				posts.unshift({
 					title: issue.node.title,
-					content: issue.node.bodyText,
+					content: issue.node.bodyHTML,
 					locked: issue.node.locked,
 					timestamp: issue.node.createdAt,
 					comments: issue.node.comments.edges,
