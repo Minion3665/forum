@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayBoards from "./boards/displayBoards.js";
 import BoardPosts from "./posts/boards.js";
+import querySearch from "stringquery";
 //import UserPosts from "./boards/displayBoards.js";
 
 let buildNumber = 0.26;
@@ -25,6 +26,13 @@ class App extends Component {
       </Router>
     );
   }
+}
+
+class Authentication extends Component {
+	render() {
+		querySearch();
+		return null;
+	}
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
