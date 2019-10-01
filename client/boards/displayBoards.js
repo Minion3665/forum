@@ -98,7 +98,7 @@ class DisplayBoards extends Component {
 			});
 			this.setState({boards: boards});
 		}).catch((error) => {
-			console.log({error: error});
+			window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 		});
 	}
 	componentDidMount() {
