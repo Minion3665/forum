@@ -37,7 +37,12 @@ class Authentication extends Component {
 		let ghCode = querySearch(this.props.location.search).code;
 		axios.create({
   			baseURL: 'https://github.com/login/oauth/access_token'
-		}).post({client_id: "9e99d8b63b9a74c6c3a4", client_secret: "65209c048eca0255f770c84de322ba0a9d59055f", code: ghCode});
+		}).post({client_id: "9e99d8b63b9a74c6c3a4", client_secret: "65209c048eca0255f770c84de322ba0a9d59055f", code: ghCode})
+		.then((response) => {
+			console.log(response);
+		}).catch((error) => {
+			console.log({errortext: "Failed to get response from github", error: error});
+		});
 		return null;
 	}
 }
