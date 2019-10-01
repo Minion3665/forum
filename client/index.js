@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayBoards from "./boards/displayBoards.js";
 import BoardPosts from "./posts/boards.js";
 import querySearch from "stringquery";
+import axios from "axios";
 //import UserPosts from "./boards/displayBoards.js";
 
 let buildNumber = 0.26;
@@ -33,7 +34,10 @@ class App extends Component {
 
 class Authentication extends Component {
 	render() {
-		alert(querySearch(this.props.location.search));
+		ghCode = querySearch(this.props.location.search).code;
+		axios.create({
+  			baseURL: 'https://github.com/login/oauth/access_token'
+		}).post({client_id: "9e99d8b63b9a74c6c3a4", client_secret: "65209c048eca0255f770c84de322ba0a9d59055f", code: ghCode});
 		return null;
 	}
 }
