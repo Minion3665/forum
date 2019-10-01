@@ -15,22 +15,25 @@ console.log(
 );
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/" render={() => {null}}/>
-          <Route path="/board/:board" component={BoardPosts}/>
-        </Switch>
-        <DisplayBoards/>
-      </Router>
-    );
-  }
+	render() {
+		return (
+			<Router>
+				<Switch>
+					<Route exact path="/" render={() => {null}}/>
+					<Route path="/board/:board" component={BoardPosts}/>
+				</Switch>
+				<Switch>
+					<Route path="/login/callback" component={Authentication}/>
+					<Route component={DisplayBoards}/>
+				</Switch>
+			</Router>
+		);
+	}
 }
 
 class Authentication extends Component {
 	render() {
-		querySearch();
+		alert(querySearch(this.props.location.search));
 		return null;
 	}
 }
