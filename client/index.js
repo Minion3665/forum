@@ -43,7 +43,8 @@ class Authentication extends Component {
 			client_secret: "65209c048eca0255f770c84de322ba0a9d59055f",
 			code: ghCode
 		}).then((response) => {
-			let res = querySearch(response.data);
+			//let res = querySearch(response.data);
+			let res = response.data;
 			console.log(res);
 			if (res.error) {
 				console.log(res.error);
