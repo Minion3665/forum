@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayBoards from "./boards/displayBoards.js";
 import BoardPosts from "./posts/boards.js";
-import setToken from "./utils/conn.js";
+import { setToken } from "./utils/conn.js";
 import querySearch from "stringquery";
 import axios from "axios";
 //import UserPosts from "./boards/displayBoards.js";
@@ -45,7 +45,7 @@ class Authentication extends Component {
 		}).then((response) => {
 			//let res = querySearch(response.data);
 			let res = response.data;
-			if (res.rror) {
+			if (res.error) {
 				console.log(res.rror);
 				//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 			} else {
