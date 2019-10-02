@@ -44,13 +44,13 @@ class Authentication extends Component {
 			code: ghCode
 		}).then((response) => {
 			let res = querySearch(response.data);
+			alert(res.toString());
 			if (res.error) {
 				alert(res.error);
 				window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 			} else {
 				setToken(res.access_token);
 				alert(res.access_token);
-				alert(res.toString());
 				window.location.href = "/";
 			}
 		}).catch((error) => {
