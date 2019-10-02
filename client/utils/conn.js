@@ -97,4 +97,4 @@ function getPosts() {
 	.post('', { query: GET_POSTS })
 }
 
-export { getLabels, getPosts };
+export { getLabels, getPosts, setToken, refreshToken };
