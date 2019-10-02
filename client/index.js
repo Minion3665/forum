@@ -43,20 +43,15 @@ class Authentication extends Component {
 			client_secret: "65209c048eca0255f770c84de322ba0a9d59055f",
 			code: ghCode
 		}).then((response) => {
-			console.log(response.data);
-			let res = querySearch(response.data);
-			console.log(res);
+			let res = querySearch("?"+response.data);
 			if (res.error) {
-				console.log(res.error);
-				//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
+				window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 			} else {
 				setToken(res.access_token);
-				console.log(res.access_token);
-				//window.location.href = "/";
+				window.location.href = "/";
 			}
 		}).catch((error) => {
-			console.log({errortext: "Failed to get response from github", error: error});
-			//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
+			window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 		});
 		return null;
 	}
