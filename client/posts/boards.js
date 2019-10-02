@@ -30,6 +30,7 @@ class BoardPosts extends Component {
 		this.setState({status: null, board: this.props.match.params.board});
 		getPosts().then((res) => {
 			getLabels().then((labels) => {
+				console.log(this.props.match.params.board);
 				let posts = [];
 				let currentBoardLabel = null;
 				for (const label of labels) {
@@ -38,6 +39,8 @@ class BoardPosts extends Component {
 						break;
 					}
 				}
+				console.log(this.props.match.params.board);
+				console.log(currentBoardLabel);
 				if (currentBoardLabel == null) {
 					this.setState({status: false});
 					return;
