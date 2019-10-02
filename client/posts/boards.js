@@ -24,26 +24,51 @@ let base404ImageStyle = {
 class BoardPosts extends Component {
 	constructor(props) {
   		super(props);
-		this.state = {posts: null};
+		this.state = {status: null, posts: null};
 	}
 	getPostsInBoard() {
+		this.setState({status: null});
 		getPosts().then((res) => {
-			let posts = [];
-			res.data.data.repository.issues.edges.forEach((issue) => {
-				if (issue.node.title.startsWith("Board:"+this.props.match.params.board+" ")) {
-					posts.unshift({
-						title: issue.node.title,
-						content: issue.node.bodyHTML,
-						locked: issue.node.locked,
-						timestamp: issue.node.createdAt,
-						comments: issue.node.comments.edges,
-						tags: issue.node.labels.edges,
-						author: issue.node.author.login,
-						author_pfp: issue.node.author.avatarUrl,
-					});
+			getLabels().then((labels) => {
+				let posts = [];
+				currentBoardLabel = null;
+				for (const label of labels) {
+					if (encodeURI(label.name.replace(" ", "-")) == this.props.match.params.board) {
+						currentBoardLabel = label;
+						break;
+					}
 				}
-			});
-			this.setState({posts: posts});
+				if (currentBoardLabel == null) {
+					this.setState({status: false});
+					return;
+				}
+				res.data.data.repository.issues.edges.forEach((issue) => {
+					if (issue.node.title.startsWith("Board:"+this.props.match.params.board+" ")) {
+						posts.unshift({
+							title: issue.node.title.slice(("Board:"+this.props.match.params.board+" ").length),
+							content: issue.node.bodyHTML,
+							locked: issue.node.locked,
+							timestamp: issue.node.createdAt,
+							comments: issue.node.comments.edges,
+							tags: issue.node.labels.edges,
+							author: issue.node.author.login,
+							author_pfp: issue.node.author.avatarUrl,
+						});
+					} else if (currentBoardLabel in issue.node.labels.edges) {
+						posts.unshift({
+							title: issue.node.title,
+							content: issue.node.bodyHTML,
+							locked: issue.node.locked,
+							timestamp: issue.node.createdAt,
+							comments: issue.node.comments.edges,
+							tags: issue.node.labels.edges,
+							author: issue.node.author.login,
+							author_pfp: issue.node.author.avatarUrl,
+						});
+					}
+				});
+				this.setState({posts: posts, status: true});
+			}
 		});
 	}
 	componentDidMount() {
