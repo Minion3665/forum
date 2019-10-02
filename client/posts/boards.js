@@ -26,7 +26,7 @@ class BoardPosts extends Component {
   		super(props);
 		this.state = {posts: null};
 	}
-	componentDidMount() {
+	getPostsInBoard() {
 		getPosts().then((res) => {
 			let posts = [];
 			res.data.data.repository.issues.edges.forEach((issue) => {
@@ -46,7 +46,11 @@ class BoardPosts extends Component {
 			this.setState({posts: posts});
 		});
 	}
+	componentDidMount() {
+		this.getPostsInBoard();
+	}
 	render() {
+		this.getPostsInBoard();
 		let board = this.props.match.params.board;
 		let boardLabel = null;
 		//let labels = getLabels();
