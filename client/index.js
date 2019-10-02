@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayBoards from "./boards/displayBoards.js";
 import BoardPosts from "./posts/boards.js";
+import setToken from "./utils/conn.js";
 import querySearch from "stringquery";
 import axios from "axios";
 //import UserPosts from "./boards/displayBoards.js";
@@ -42,9 +43,16 @@ class Authentication extends Component {
 			client_secret: "65209c048eca0255f770c84de322ba0a9d59055f",
 			code: ghCode
 		}).then((response) => {
-			console.log(response);
+			let res = querySearch(response.data);
+			if (res.error) {
+				window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
+			} else {
+				setToken(res.access_token);
+				window.location.href = "/";
+			}
 		}).catch((error) => {
 			console.log({errortext: "Failed to get response from github", error: error});
+			window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 		});
 		return null;
 	}
