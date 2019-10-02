@@ -44,7 +44,7 @@ class Authentication extends Component {
 			code: ghCode
 		}).then((response) => {
 			let res = querySearch(response.data);
-			let res = response.data;
+			console.log(res);
 			if (res.error) {
 				console.log(res.error);
 				//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
