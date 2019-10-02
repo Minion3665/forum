@@ -31,7 +31,7 @@ class BoardPosts extends Component {
 		getPosts().then((res) => {
 			getLabels().then((labels) => {
 				let posts = [];
-				currentBoardLabel = null;
+				let currentBoardLabel = null;
 				for (const label of labels) {
 					if (encodeURI(label.name.replace(" ", "-")) == this.props.match.params.board) {
 						currentBoardLabel = label;
