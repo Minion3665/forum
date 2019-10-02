@@ -66,6 +66,10 @@ const GET_POSTS = `{
 	}
 }`;
 
+function setToken(token) {
+  cookie.set("gh-token", token, { path: "/", maxAge: 604800000 });
+}
+
 function refreshToken() {
   cookie.set("gh-token", cookie.get("gh-token"), { path: "/", maxAge: 604800000 });
 }
@@ -75,6 +79,7 @@ function logout() {
 }
 
 function getLabels() { // Get all labels in the forum
+	refreshToken()
 	return axiosGitHubGraphQL
 	.post('', { query: GET_LABELS })
 	.then((response) => {
@@ -87,6 +92,7 @@ function getLabels() { // Get all labels in the forum
 }
 
 function getPosts() {
+	refreshToken()
 	return axiosGitHubGraphQL
 	.post('', { query: GET_POSTS })
 }
