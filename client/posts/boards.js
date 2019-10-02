@@ -27,9 +27,6 @@ class BoardPosts extends Component {
 		this.state = {board: null, status: null, posts: null};
 	}
 	getPostsInBoard() {
-		if (this.state.board == this.props.match.params.board) {
-			return;
-		}
 		this.setState({status: null, board: this.props.match.params.board});
 		getPosts().then((res) => {
 			getLabels().then((labels) => {
@@ -108,7 +105,9 @@ class BoardPosts extends Component {
 		this.getPostsInBoard();
 	}
 	render() {
-		this.getPostsInBoard();
+		if (this.state.board != this.props.match.params.board) {
+			this.getPostsInBoard();
+		}
 		let board = this.props.match.params.board;
 		let boardLabel = null;
 		//let labels = getLabels();
