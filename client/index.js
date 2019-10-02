@@ -44,18 +44,18 @@ class Authentication extends Component {
 			code: ghCode
 		}).then((response) => {
 			let res = querySearch(response.data);
-			alert(res.toString());
+			console.log(res.toString());
 			if (res.error) {
-				alert(res.error);
+				console.log(res.error);
 				window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 			} else {
 				setToken(res.access_token);
-				alert(res.access_token);
+				console.log(res.access_token);
 				window.location.href = "/";
 			}
 		}).catch((error) => {
 			console.log({errortext: "Failed to get response from github", error: error});
-			window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
+			//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 		});
 		return null;
 	}
