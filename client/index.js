@@ -46,7 +46,7 @@ class Authentication extends Component {
 			//let res = querySearch(response.data);
 			let res = response.data;
 			if (res.error) {
-				console.log(res.rror);
+				console.log(res.error);
 				//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 			} else {
 				setToken(res.access_token);
