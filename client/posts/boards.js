@@ -24,10 +24,13 @@ let base404ImageStyle = {
 class BoardPosts extends Component {
 	constructor(props) {
   		super(props);
-		this.state = {status: null, posts: null};
+		this.state = {board: this.props.match.params.board, status: null, posts: null};
 	}
 	getPostsInBoard() {
-		this.setState({status: null});
+		if (this.state.board == this.props.match.params.board) {
+			return;
+		}
+		this.setState({status: null, board: this.props.match.params.board});
 		getPosts().then((res) => {
 			getLabels().then((labels) => {
 				let posts = [];
@@ -43,7 +46,35 @@ class BoardPosts extends Component {
 					return;
 				}
 				res.data.data.repository.issues.edges.forEach((issue) => {
-					if (issue.node.title.startsWith("Board:"+this.props.match.params.board+" ")) {
+					if (this.props.match.params.board == "all") {
+						posts.unshift({
+							title: issue.node.title,
+							content: issue.node.bodyHTML,
+							locked: issue.node.locked,
+							timestamp: issue.node.createdAt,
+							comments: issue.node.comments.edges,
+							tags: issue.node.labels.edges,
+							author: issue.node.author.login,
+							author_pfp: issue.node.author.avatarUrl,
+						});
+					} else if (this.props.match.params.board == "off-topic") {
+						let issueLabelNames = []
+						issue.node.labels.edges.forEach((label) => {
+							issueLabelNames.push(label.name);
+						}
+						if ("Moderation:OffTopic" in issueLabelNames) {
+							posts.unshift({
+								title: issue.node.title,
+								content: issue.node.bodyHTML,
+								locked: issue.node.locked,
+								timestamp: issue.node.createdAt,
+								comments: issue.node.comments.edges,
+								tags: issue.node.labels.edges,
+								author: issue.node.author.login,
+								author_pfp: issue.node.author.avatarUrl,
+							});
+						}
+					} else if (issue.node.title.startsWith("Board:"+this.props.match.params.board+" ")) {
 						posts.unshift({
 							title: issue.node.title.slice(("Board:"+this.props.match.params.board+" ").length),
 							content: issue.node.bodyHTML,
