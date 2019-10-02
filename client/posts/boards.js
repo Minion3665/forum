@@ -30,16 +30,18 @@ class BoardPosts extends Component {
 		getPosts().then((res) => {
 			let posts = [];
 			res.data.data.repository.issues.edges.forEach((issue) => {
-				posts.unshift({
-					title: issue.node.title,
-					content: issue.node.bodyHTML,
-					locked: issue.node.locked,
-					timestamp: issue.node.createdAt,
-					comments: issue.node.comments.edges,
-					tags: issue.node.labels.edges,
-					author: issue.node.author.login,
-					author_pfp: issue.node.author.avatarUrl,
-				});
+				if (issue.node.title.startsWith("Board:"+this.props.match.params.board+" ")) {
+					posts.unshift({
+						title: issue.node.title,
+						content: issue.node.bodyHTML,
+						locked: issue.node.locked,
+						timestamp: issue.node.createdAt,
+						comments: issue.node.comments.edges,
+						tags: issue.node.labels.edges,
+						author: issue.node.author.login,
+						author_pfp: issue.node.author.avatarUrl,
+					});
+				}
 			});
 			this.setState({posts: posts});
 		});
