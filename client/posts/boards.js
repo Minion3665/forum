@@ -24,7 +24,7 @@ let base404ImageStyle = {
 class BoardPosts extends Component {
 	constructor(props) {
   		super(props);
-		this.state = {board: this.props.match.params.board, status: null, posts: null};
+		this.state = {board: null, status: null, posts: null};
 	}
 	getPostsInBoard() {
 		if (this.state.board == this.props.match.params.board) {
