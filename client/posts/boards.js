@@ -68,7 +68,7 @@ class BoardPosts extends Component {
 					}
 				});
 				this.setState({posts: posts, status: true});
-			}
+			});
 		});
 	}
 	componentDidMount() {
