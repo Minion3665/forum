@@ -45,14 +45,13 @@ class Authentication extends Component {
 		}).then((response) => {
 			//let res = querySearch(response.data);
 			let res = response.data;
-			console.log(res);
-			if (res.error) {
-				console.log(res.error);
-				window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
+			if (res.rror) {
+				console.log(res.rror);
+				//window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
 			} else {
 				setToken(res.access_token);
 				console.log(res.access_token);
-				window.location.href = "/";
+				//window.location.href = "/";
 			}
 		}).catch((error) => {
 			console.log({errortext: "Failed to get response from github", error: error});
