@@ -46,6 +46,8 @@ class BoardPosts extends Component {
 					return;
 				}
 				res.data.data.repository.issues.edges.forEach((issue) => {
+					console.log(issue);
+					console.log(this.props.match.params.board);
 					if (this.props.match.params.board == "all") {
 						posts.unshift({
 							title: issue.node.title,
