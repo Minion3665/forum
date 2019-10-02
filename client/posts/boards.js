@@ -41,7 +41,7 @@ class BoardPosts extends Component {
 				}
 				console.log(this.props.match.params.board);
 				console.log(currentBoardLabel);
-				if (currentBoardLabel == null) {
+				if (currentBoardLabel == null && !(this.props.match.params.board in ["all", "off-topic"])) {
 					this.setState({status: false});
 					return;
 				}
