@@ -25,7 +25,7 @@ let base404ImageStyle = {
 class BoardPosts extends Component {
 	constructor(props) {
   		super(props);
-		this.state = {board: null, status: null, posts: []};
+		this.state = {board: null, status: null, posts: [], repoid: null};
 	}
 	getPostsInBoard() {
 		this.setState({status: null, board: this.props.match.params.board});
@@ -110,7 +110,7 @@ class BoardPosts extends Component {
 						});
 					}
 				});
-				this.setState({posts: posts, status: true});
+				this.setState({posts: posts, status: true, repoid: res.id});
 			});
 		});
 	}
@@ -154,7 +154,10 @@ class BoardPosts extends Component {
 		} else {
 			return (
 				<React.Fragment>
-					<UserInput type="post" to={this.state.board} onsubmit={() => {this.state.onsubmit(); return false}}/>
+					<UserInput type="post"
+						to={this.state.board}
+						onsubmit={(title, body) => {postPost(title, body, this.state.repoid)}
+					}/>
 					{
 						Object.keys(posts).map((id) => {
 							let post = posts[id];
