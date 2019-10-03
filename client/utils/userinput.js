@@ -16,8 +16,8 @@ let baseInputContainerStyle = {
 	backgroundColor: "#bababa",
 	padding: "2vw",
 };
-baseTextAreaStyle = {
-	resize: "none";
+let baseTextAreaStyle = {
+	resize: "none",
 };
 
 class UserInput extends Component {
