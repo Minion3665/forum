@@ -24,9 +24,9 @@ class UserInput extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			type: props.type ?: "post",
+			type: (props.type) ? props.type : "post",
 			verb: (props.type != "comment") ? "to" : "on",
-			to: props.to ?: "this",
+			to: (props.to) ? props.to : "this",
 			width: (props.type != "comment") ? "85vw" : "75vw",
 		}
 	}
