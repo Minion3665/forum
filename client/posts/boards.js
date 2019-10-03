@@ -151,9 +151,6 @@ class BoardPosts extends Component {
 		//let labels = getPosts(boardLabel);
 		let posts = this.state.posts;
 		let status = this.state.status;
-		if (this.state.board == "all" || this.state.board == "off-topic") {
-			userInputBox = null;
-		}
 		if (!status) {
 			return "Getting data";
 		} else {
