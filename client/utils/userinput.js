@@ -31,6 +31,7 @@ class UserInput extends Component {
 			type: (props.type) ? props.type : "post",
 			verb: (props.type != "comment") ? "to" : "on",
 			to: (props.to) ? props.to : "this",
+			onsubmit: (props.onsubmit) ? props.onsubmit : void(0),
 			width: (props.type != "comment") ? "85vw" : "75vw",
 			transform: (props.type != "comment") ? "translate(-50%, 0)" : "translate(-45%, 0)",
 		}
