@@ -32,10 +32,12 @@ class UserInput extends Component {
 			verb: (props.type != "comment") ? "to" : "on",
 			to: (props.to) ? props.to : "this",
 			width: (props.type != "comment") ? "85vw" : "75vw",
+			transform: (props.type != "comment") ? "translate(-50%, 0)" : "translate(-45%, 0)",
 		}
 	}
 	render() {
 		baseInputContainerStyle.width = this.state.width;
+		baseInputContainerStyle.transform = this.state.transform;
 		return (
 			<React.Fragment>
 				<div style={baseInputContainerStyle}>
