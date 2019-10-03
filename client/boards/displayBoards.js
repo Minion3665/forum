@@ -118,8 +118,6 @@ class DisplayBoards extends Component {
 		return (
 			<React.Fragment>
 				<div style={containerStyle}>
-					<Board name="all" description="a compilation of all the posts"/>
-					<Board name="off topic" description="all the posts that don't fit in the original boards they were posted in" bgColor="#ffffff" />
 					{
 						Object.keys(boards).map((id) => {
 							let board = boards[id];
