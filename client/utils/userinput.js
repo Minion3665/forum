@@ -43,5 +43,4 @@ class UserInput extends Component {
 	}
 }
 
-export default DisplayBoards;
-export { Board };
+export default UserInput;
