@@ -107,9 +107,9 @@ function postPost(title, body, repoid) {
 	.post('', { mutation: `{
 		createIssue (
 			input:{
-				title: ${title},
-				body: ${body},
-				repositoryId: ${repoid},
+				title: `+title+`,
+				body: `+body+`,
+				repositoryId: `+repoid+`,
 			}
 		){
 			clientMutationId
