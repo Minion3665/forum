@@ -153,8 +153,8 @@ class BoardPosts extends Component {
 			return "Getting data";
 		} else {
 			return (
-				<UserInput type="post" to={this.state.board}/>
 				<React.Fragment>
+					<UserInput type="post" to={this.state.board}/>
 					{
 						Object.keys(posts).map((id) => {
 							let post = posts[id];
