@@ -5,7 +5,6 @@ import { getLabels } from "./../utils/conn.js";
 
 let baseInputContainerStyle = {
 	position: "relative",
-	borderLeft: "2vw solid #000000",
 	boxSizing: "borderBox",
 	width: "85%",
 	height: "auto",
@@ -18,6 +17,7 @@ let baseInputContainerStyle = {
 };
 let baseTextAreaStyle = {
 	resize: "none",
+	width: "100%",
 };
 
 class UserInput extends Component {
