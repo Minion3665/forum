@@ -53,6 +53,10 @@ class BoardPosts extends Component {
 				res.data.data.repository.issues.edges.forEach((issue) => {
 					console.log(issue);
 					console.log(this.props.match.params.board);
+					let labelNodes = []
+					issue.node.labels.edges.forEach((label) => {
+						labelNodes.push(label.node);
+					}
 					if (this.props.match.params.board == "all") {
 						posts.unshift({
 							title: issue.node.title,
@@ -60,14 +64,14 @@ class BoardPosts extends Component {
 							locked: issue.node.locked,
 							timestamp: issue.node.createdAt,
 							comments: issue.node.comments.edges,
-							tags: issue.node.labels.edges,
+							tags: labelNodes,
 							author: issue.node.author.login,
 							author_pfp: issue.node.author.avatarUrl,
 						});
 					} else if (this.props.match.params.board == "off-topic") {
 						let issueLabelNames = []
-						issue.node.labels.edges.forEach((label) => {
-							issueLabelNames.push(label.node.name);
+						labelNodes.forEach((label) => {
+							issueLabelNames.push(label.name);
 						});
 						if (issueLabelNames.includes("Moderation:OffTopic")) {
 							posts.unshift({
@@ -76,7 +80,7 @@ class BoardPosts extends Component {
 								locked: issue.node.locked,
 								timestamp: issue.node.createdAt,
 								comments: issue.node.comments.edges,
-								tags: issue.node.labels.edges,
+								tags: labelNodes,
 								author: issue.node.author.login,
 								author_pfp: issue.node.author.avatarUrl,
 							});
@@ -88,18 +92,18 @@ class BoardPosts extends Component {
 							locked: issue.node.locked,
 							timestamp: issue.node.createdAt,
 							comments: issue.node.comments.edges,
-							tags: issue.node.labels.edges,
+							tags: labelNodes,
 							author: issue.node.author.login,
 							author_pfp: issue.node.author.avatarUrl,
 						});
-					} else if (currentBoardLabel in issue.node.labels.edges) {
+					} else if (currentBoardLabel in labelNodes) {
 						posts.unshift({
 							title: issue.node.title,
 							content: issue.node.bodyHTML,
 							locked: issue.node.locked,
 							timestamp: issue.node.createdAt,
 							comments: issue.node.comments.edges,
-							tags: issue.node.labels.edges,
+							tags: labelNodes,
 							author: issue.node.author.login,
 							author_pfp: issue.node.author.avatarUrl,
 						});
