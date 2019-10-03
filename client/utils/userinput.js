@@ -35,7 +35,7 @@ class UserInput extends Component {
 		return (
 			<React.Fragment>
 				<div style={baseInputContainerStyle}>
-					<span>{this.state.type.toUpperCase()} {this.state.verb.lower().toUpperCase()} {this.state.to.lower().toUpperCase()}</span>
+					<span>{this.state.type.toUpperCase()} {this.state.verb.toUpperCase()} {this.state.to.toUpperCase()}</span>
 					<textarea style={baseTextAreaStyle}/>
 				</div>
 			</React.Fragment>
