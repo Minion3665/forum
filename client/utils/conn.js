@@ -100,7 +100,8 @@ function getPosts() {
 
 function postPost(title, body, repoid) {
 	refreshToken()
-	let mutation = `{
+	let mutation = `
+	mutation {
 		createIssue (
 			input:{
 				title: "`+title+`",
@@ -113,7 +114,7 @@ function postPost(title, body, repoid) {
 	}`
 	console.log(mutation);
 	return axiosGitHubGraphQL
-	.post('', { mutation: mutation })
+	.post('', { query: mutation })
 }
 
 export { getLabels, getPosts, setToken, refreshToken, postPost };
