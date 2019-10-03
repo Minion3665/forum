@@ -68,6 +68,7 @@ class BoardPosts extends Component {
 						let issueLabelNames = []
 						issue.node.labels.edges.forEach((label) => {
 							issueLabelNames.push(label.name);
+							alert(label.name);
 						});
 						if (issueLabelNames.includes("Moderation:OffTopic")) {
 							posts.unshift({
