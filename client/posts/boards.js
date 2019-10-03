@@ -56,7 +56,7 @@ class BoardPosts extends Component {
 					let labelNodes = []
 					issue.node.labels.edges.forEach((label) => {
 						labelNodes.push(label.node);
-					}
+					});
 					if (this.props.match.params.board == "all") {
 						posts.unshift({
 							title: issue.node.title,
