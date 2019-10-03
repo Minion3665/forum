@@ -121,4 +121,4 @@ function postPost(title, body, repoid) {
 	.post('', { mutation: POST_POST })
 }
 
-export { getLabels, getPosts, setToken, refreshToken };
+export { getLabels, getPosts, setToken, refreshToken, postPost };
