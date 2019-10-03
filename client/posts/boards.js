@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import hexToHSL from "./../utils/colors.js";
+import UserInput from "./../utils/userinput.js";
 import { getLabels, getPosts } from "./../utils/conn.js";
 import Post from "./post.js";
 
@@ -24,7 +25,7 @@ let base404ImageStyle = {
 class BoardPosts extends Component {
 	constructor(props) {
   		super(props);
-		this.state = {board: null, status: null, posts: null};
+		this.state = {board: null, status: null, posts: []};
 	}
 	getPostsInBoard() {
 		this.setState({status: null, board: this.props.match.params.board});
@@ -147,10 +148,12 @@ class BoardPosts extends Component {
 		}*/
 		//let labels = getPosts(boardLabel);
 		let posts = this.state.posts;
-		if (!posts) {
-			return null;
+		let status = this.state.status;
+		if (!status) {
+			return "Getting data";
 		} else {
 			return (
+				<UserInput type="post" to={this.state.board}/>
 				<React.Fragment>
 					{
 						Object.keys(posts).map((id) => {
