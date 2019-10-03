@@ -157,18 +157,10 @@ class BoardPosts extends Component {
 		} else {
 			return (
 				<React.Fragment>
-					{() => {
-					 	if (!(["all", "off-topic"].contains(board))) {
-							return (
-								<UserInput type="post"
-									to={board}
-									onsubmit={(title, body) => {postPost("Board:"+board+" "+title, body, this.state.repoid); getPosts()}
-								}/>
-							)
-						} else {
-							return null;
-						}
-					}}	
+					<UserInput type="post"
+						to={board}
+						onsubmit={(title, body) => {postPost("Board:"+board+" "+title, body, this.state.repoid); getPosts()}
+					}/>
 					{
 						Object.keys(posts).map((id) => {
 							let post = posts[id];
@@ -187,7 +179,7 @@ class BoardPosts extends Component {
 						})
 					}
 				</React.Fragment>
-			);
+			)
 		}
 	}
 }
