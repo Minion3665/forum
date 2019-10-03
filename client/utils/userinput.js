@@ -20,6 +20,10 @@ let baseTextAreaStyle = {
 	width: "100%",
 };
 
+function uppercaseFirstLetter(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 class UserInput extends Component {
 	constructor(props) {
 		super(props);
@@ -35,7 +39,7 @@ class UserInput extends Component {
 		return (
 			<React.Fragment>
 				<div style={baseInputContainerStyle}>
-					<span>{this.state.type.toUpperCase()} {this.state.verb.toUpperCase()} {this.state.to.toUpperCase()}</span>
+					<span>{uppercaseFirstLetter(this.state.type)} {uppercaseFirstLetter(this.state.verb)} {uppercaseFirstLetter(this.state.to)}</span>
 					<textarea style={baseTextAreaStyle}/>
 				</div>
 			</React.Fragment>
