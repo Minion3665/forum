@@ -27,19 +27,6 @@ const GET_LABELS = `{
 	}
 }`;
 
-const POST_POST = `{
-	createIssue (
-		input:{
-			title: ${title},
-			body: ${body},
-			repositoryId: ${repoid},
-		}
-	)
-	{
-		clientMutationId
-	}
-}`;
-
 const GET_POSTS = `{
 	repository(owner:${owner}, name:${repo}) {
 		id,
@@ -114,7 +101,17 @@ function getPosts() {
 function postPost(title, body, repoid) {
 	refreshToken()
 	return axiosGitHubGraphQL
-	.post('', { mutation: POST_POST })
+	.post('', { mutation: `{
+		createIssue (
+			input:{
+				title: ${title},
+				body: ${body},
+				repositoryId: ${repoid},
+			}
+		){
+			clientMutationId
+		}
+	}` })
 }
 
 export { getLabels, getPosts, setToken, refreshToken, postPost };
