@@ -43,8 +43,8 @@ class UserInput extends Component {
 		this.setState({bodyValue: event.target.value});
 	}
 	handleSubmit(event) {
-		this.state.onsubmit("A "+this.state.type, this.state.bodyValue);
 		event.preventDefault();
+		this.state.onsubmit("A "+this.state.type, this.state.bodyValue);
 	}
 	render() {
 		baseInputContainerStyle.width = this.state.width;
