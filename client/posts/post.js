@@ -89,7 +89,7 @@ class Post extends Component {
 				<span style={baseFooterStyle}>{this.props.comments.length} comment{commentsSuffix}
 				{" "}- {this.props.tags.length} tag{tagsSuffix}
 				</span></div>
-				<UserInput type="comment" to={this.props.title}/>
+				//<UserInput type="comment" to={this.props.title}/>
 				{
 					Object.keys(comments).map((id) => {
 						let comment = comments[id];
