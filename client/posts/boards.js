@@ -110,7 +110,7 @@ class BoardPosts extends Component {
 						});
 					}
 				});
-				this.setState({posts: posts, status: true, repoid: res.id});
+				this.setState({posts: posts, status: true, repoid: res.data.data.repository.id});
 			});
 		});
 	}
