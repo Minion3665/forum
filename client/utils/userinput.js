@@ -34,7 +34,7 @@ class UserInput extends Component {
 		baseInputBoxStyle.width = this.state.width;
 		return (
 			<React.Fragment>
-				<fieldset style={baseInputBoxStyle}>
+				<fieldset style={baseInputContainerStyle}>
 					<legend>{this.state.type} {this.state.verb} {this.state.to}</legend>
 					<textarea style={baseTextAreaStyle}/>
 				</fieldset>
