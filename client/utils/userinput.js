@@ -41,8 +41,12 @@ class UserInput extends Component {
 		return (
 			<React.Fragment>
 				<div style={baseInputContainerStyle}>
-					<span>{uppercaseFirstLetter(this.state.type)} {this.state.verb} {this.state.to.toLowerCase()}</span>
-					<textarea style={baseTextAreaStyle}/>
+					<form onsubmit={this.state.onsubmit}>
+						<span>{uppercaseFirstLetter(this.state.type)} {this.state.verb} {this.state.to.toLowerCase()}</span>
+						<textarea style={baseTextAreaStyle}/>
+						<button type="reset">{cancel}!</button>{" "}
+						<button type="submit">{uppercaseFirstLetter(this.state.type)}!</button>
+					</form>
 				</div>
 			</React.Fragment>
 		);
