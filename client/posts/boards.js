@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import hexToHSL from "./../utils/colors.js";
 import UserInput from "./../utils/userinput.js";
-import { getLabels, getPosts } from "./../utils/conn.js";
+import { getLabels, getPosts, postPost } from "./../utils/conn.js";
 import Post from "./post.js";
 
 let base404Style = {
@@ -154,7 +154,7 @@ class BoardPosts extends Component {
 		} else {
 			return (
 				<React.Fragment>
-					<UserInput type="post" to={this.state.board}/>
+					<UserInput type="post" to={this.state.board} onsubmit={() => {this.state.onsubmit(); return false}}/>
 					{
 						Object.keys(posts).map((id) => {
 							let post = posts[id];
