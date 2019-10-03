@@ -42,6 +42,7 @@ const POST_POST = `{
 
 const GET_POSTS = `{
 	repository(owner:${owner}, name:${repo}) {
+		id,
 		issues(last:100) {
 			edges {
 				node {
@@ -72,12 +73,7 @@ const GET_POSTS = `{
 					title,
 					bodyHTML,
 					createdAt,
-					locked,
-					RepositoryNode {
-						repository {
-							id
-						}
-					}
+					locked
 				}
 			}
 		}
