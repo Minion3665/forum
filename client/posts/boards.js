@@ -151,22 +151,19 @@ class BoardPosts extends Component {
 		//let labels = getPosts(boardLabel);
 		let posts = this.state.posts;
 		let status = this.state.status;
+		let userInputBox = `<UserInput type="post"
+			to={this.state.board}
+			onsubmit={(title, body) => {postPost("Board:"+this.state.board+" "+title, body, this.state.repoid); this.getPostsInBoard()}
+		}/>`;
+		if (this.state.board == "all" || this.state.board == "off-topic") {
+			userInputBox = null;
+		}
 		if (!status) {
 			return "Getting data";
 		} else {
 			return (
 				<React.Fragment>
-					{() => {
-					 	if (this.state.board == "all" || this.state.board == "off-topic") {
-							return null;
-						}
-						return (
-							<UserInput type="post"
-								to={this.state.board}
-								onsubmit={(title, body) => {postPost("Board:"+this.state.board+" "+title, body, this.state.repoid); this.getPostsInBoard()}
-							}/>
-						);
-					}}	
+					{userInputBox}	
 					{
 						Object.keys(posts).map((id) => {
 							let post = posts[id];
