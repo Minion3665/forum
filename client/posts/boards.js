@@ -154,10 +154,15 @@ class BoardPosts extends Component {
 		} else {
 			return (
 				<React.Fragment>
-					<UserInput type="post"
-						to={this.state.board}
-						onsubmit={(title, body) => {postPost(title, body, this.state.repoid)}
-					}/>
+					{() => {
+					 	if (this.props.match.params.board == "all" || this.props.match.params.board == "off-topic") {
+							return null;
+						}
+						return (<UserInput type="post"
+							to={this.state.board}
+							onsubmit={(title, body) => {postPost("Board:"+this.state.board+" "+title, body, this.state.repoid)}
+						}/>);
+					}}	
 					{
 						Object.keys(posts).map((id) => {
 							let post = posts[id];
