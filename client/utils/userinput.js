@@ -42,9 +42,8 @@ class UserInput extends Component {
 	handleBodyChange(event) {
 		this.setState({bodyValue: event.target.value});
 	}
-	handleSubmit(event) {
-		alert("A "+this.state.type);
-		alert(this.state.bodyValue);
+	handleSubmit() {
+		this.setState({bodyValue: ""});
 		this.state.onsubmit("A "+this.state.type, this.state.bodyValue);
 	}
 	render() {
@@ -53,11 +52,11 @@ class UserInput extends Component {
 		return (
 			<React.Fragment>
 				<div style={baseInputContainerStyle}>
-					<form onsubmit={this.handleSubmit}>
+					<form>
 						<span>{uppercaseFirstLetter(this.state.type)} {this.state.verb} #{this.state.to.toLowerCase()}</span>
 						<textarea value={this.state.bodyValue} onChange={this.handleBodyChange} style={baseTextAreaStyle}/>
-						<button type="reset">Clear</button>{" "}
-						<button type="submit">{uppercaseFirstLetter(this.state.type)}!</button>
+						<button onClick={() => {this.setState({bodyValue: ""})}}>Clear</button>{" "}
+						<button onClick={this.handleSubmit}>{uppercaseFirstLetter(this.state.type)}!</button>
 					</form>
 				</div>
 			</React.Fragment>
