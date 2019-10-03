@@ -27,6 +27,19 @@ const GET_LABELS = `{
 	}
 }`;
 
+const POST_POST = `{
+	createIssue (
+		input:{
+			title: ${title},
+			body: ${body},
+			repositoryId: ${repoid},
+		}
+	)
+	{
+		clientMutationId
+	}
+}`;
+
 const GET_POSTS = `{
 	repository(owner:${owner}, name:${repo}) {
 		issues(last:100) {
@@ -59,7 +72,12 @@ const GET_POSTS = `{
 					title,
 					bodyHTML,
 					createdAt,
-					locked
+					locked,
+					RepositoryNode {
+						repository {
+							id
+						}
+					}
 				}
 			}
 		}
@@ -95,6 +113,12 @@ function getPosts() {
 	refreshToken()
 	return axiosGitHubGraphQL
 	.post('', { query: GET_POSTS })
+}
+
+function postPost(title, body, repoid) {
+	refreshToken()
+	return axiosGitHubGraphQL
+	.post('', { mutation: POST_POST })
 }
 
 export { getLabels, getPosts, setToken, refreshToken };
