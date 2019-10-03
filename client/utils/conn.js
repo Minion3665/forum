@@ -103,9 +103,9 @@ function postPost(title, body, repoid) {
 	let mutation = `{
 		createIssue (
 			input:{
-				title: `+title+`,
-				body: `+body+`,
-				repositoryId: `+repoid+`,
+				title: "`+title+`",
+				body: "`+body+`",
+				repositoryId: "`+repoid+`",
 			}
 		){
 			clientMutationId
