@@ -28,7 +28,9 @@ class BoardPosts extends Component {
 		this.state = {board: null, status: null, posts: [], repoid: null};
 	}
 	getPostsInBoard() {
-		this.setState({status: null, board: this.props.match.params.board});
+		if (this.state.board != this.props.match.params.board) {
+			this.setState({status: null, board: this.props.match.params.board});
+		}
 		getPosts().then((res) => {
 			getLabels().then((labels) => {
 				console.log(this.props.match.params.board);
@@ -160,7 +162,7 @@ class BoardPosts extends Component {
 						}
 						return (<UserInput type="post"
 							to={this.state.board}
-							onsubmit={(title, body) => {postPost("Board:"+this.state.board+" "+title, body, this.state.repoid)}
+							onsubmit={(title, body) => {postPost("Board:"+this.state.board+" "+title, body, this.state.repoid); this.getPostsInBoard()}
 						}/>);
 					}}	
 					{
