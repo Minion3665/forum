@@ -100,9 +100,6 @@ function getPosts() {
 
 function postPost(title, body, repoid) {
 	refreshToken()
-	let title = title
-	let body = body
-	let repoid = repoid
 	return axiosGitHubGraphQL
 	.post('', { mutation: `{
 		createIssue (
