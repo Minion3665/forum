@@ -34,10 +34,10 @@ class UserInput extends Component {
 		baseInputContainerStyle.width = this.state.width;
 		return (
 			<React.Fragment>
-				<fieldset style={baseInputContainerStyle}>
-					<legend>{this.state.type} {this.state.verb} {this.state.to}</legend>
+				<div style={baseInputContainerStyle}>
+					<span>{this.state.type.toUpperCase()} {this.state.verb.lower().toUpperCase()} {this.state.to.lower().toUpperCase()}</span>
 					<textarea style={baseTextAreaStyle}/>
-				</fieldset>
+				</div>
 			</React.Fragment>
 		);
 	}
