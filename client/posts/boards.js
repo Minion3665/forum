@@ -159,7 +159,7 @@ class BoardPosts extends Component {
 				<React.Fragment>
 					<UserInput type="post"
 						to={board}
-						onsubmit={(title, body) => {postPost("Board:"+board+" "+title, body, this.state.repoid); alert("Posted! (if you don't see your post after pressing ok and waiting for the posts to load, please press f5)"); window.location.reload()}
+						onsubmit={(title, body) => {postPost("Board:"+board+" "+title, body, this.state.repoid); window.setTimeout(window.location.reload(), 2000)}
 					}/>
 					{
 						Object.keys(posts).map((id) => {
