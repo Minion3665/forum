@@ -54,8 +54,8 @@ class UserInput extends Component {
 					<form>
 						<span>{uppercaseFirstLetter(this.state.type)} {this.state.verb} #{this.state.to.toLowerCase()}</span>
 						<textarea value={this.state.bodyValue} onChange={this.handleBodyChange} style={baseTextAreaStyle}/>
-						<button onClick={() => {this.setState({bodyValue: ""})}}>Clear</button>{" "}
-						<button onClick={this.handleSubmit}>{uppercaseFirstLetter(this.state.type)}!</button>
+						<button type="button" onClick={() => {this.setState({bodyValue: ""})}}>Clear</button>{" "}
+						<button type="button" onClick={this.handleSubmit}>{uppercaseFirstLetter(this.state.type)}!</button>
 					</form>
 				</div>
 			</React.Fragment>
