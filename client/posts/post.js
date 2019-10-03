@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UserInput from "./../utils/userinput.js";
 
 let basePostStyle = {
 	position: "relative",
