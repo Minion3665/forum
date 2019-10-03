@@ -31,7 +31,7 @@ class UserInput extends Component {
 		}
 	}
 	render() {
-		baseInputBoxStyle.width = this.state.width;
+		baseInputContainerStyle.width = this.state.width;
 		return (
 			<React.Fragment>
 				<fieldset style={baseInputContainerStyle}>
