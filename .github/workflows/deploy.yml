@@ -26,11 +26,10 @@ jobs:
     - name: build
       run: |
         npm install
-        npm ci
         npm run build
         rm -rf /node_modules
       env:
-        CI: true
+        CI: false
     - name: copy
       run: |
         cp build/index.html build/404.html
