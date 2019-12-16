@@ -8,19 +8,23 @@
   },
   "author": "Minion3665",
   "dependencies": {
-    "react-router-dom": "5.1.2",
-    "react": "16.10.1",
-    "react-dom": "16.10.1",
-    "progress-bar-webpack-plugin": "1.12.1",
     "babel-core": "7.0.0-bridge.0",
-    "babel-loader": "8.0.6",
-    "@babel/core": "7.5.0",
-    "@babel/preset-react": "7.0.0",
-    "@babel/preset-env": "7.5.0",
     "dotenv": "8.0.0",
     "webpack": "5.0.0-alpha.29",
     "axios": "0.19.0",
     "universal-cookie": "4.0.2",
     "stringquery": "1.0.8"
+    "@babel/core": "7.7.5",
+    "@babel/preset-env": "7.7.6",
+    "@babel/preset-react": "7.7.4",
+    "babel-loader": "8.0.6",
+    "dotenv": "8.2.0",
+    "gh-pages": "^2.1.1",
+    "progress-bar-webpack-plugin": "1.12.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-router-dom": "5.0.1",
+    "react-scripts": "^3.3.0",
+    "webpack": "4.41.2"
   }
 }
