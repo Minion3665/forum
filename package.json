@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "node index.js"
+    "build": "react-script build"
   },
   "author": "Minion3665",
   "dependencies": {
