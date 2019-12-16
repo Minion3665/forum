@@ -3,7 +3,9 @@ function hexToHSL(hex) {
 	let r = parseInt(result[1], 16);
 	let g = parseInt(result[2], 16);
 	let b = parseInt(result[3], 16);
-	r /= 255, g /= 255, b /= 255;
+	r /= 255;
+	g /= 255;
+	b /= 255;
 	let max = Math.max(r, g, b), min = Math.min(r, g, b);
 	let h, s, l = (max + min) / 2;
 	if(max == min) {
