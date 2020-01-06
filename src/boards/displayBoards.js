@@ -80,11 +80,12 @@ class DisplayBoards extends Component {
 			boards: null
 		}
 	}
-	getBoards() {
+	async getBoards() {
 		let boards = [];
 		let boardNames = [];
-		getLabels().then((labels) => {
-			console.log(labels);
+		let labels = await getLabels();
+		console.log(labels);
+		try {
 			labels.forEach((label) => {
 				if (label.name.startsWith("Board:")) {
 					label.name = label.name.slice(6);
@@ -97,10 +98,10 @@ class DisplayBoards extends Component {
 				}
 			});
 			this.setState({boards: boards});
-		}).catch((error) => {
+		} catch (error) {
 			alert(error);
 			window.location.href = "https://github.com/login/oauth/authorize?client_id=9e99d8b63b9a74c6c3a4&scope=repo,user";
-		});
+		}
 	}
 	componentDidMount() {
 		this.getBoards();
