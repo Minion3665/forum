@@ -10,7 +10,7 @@ const axiosGitHubGraphQL = axios.create({
   },
 });
 
-const owner = "minion3665"
+const owner = "Minion3665"
 const repo = "forum"
 
 const GET_LABELS = `{
@@ -84,6 +84,8 @@ function getLabels() { // Get all labels in the forum
 	return axiosGitHubGraphQL
 	.post('', { query: GET_LABELS })
 	.then((response) => {
+		console.log(response);
+		debugger;
 		let labels = [];
 		response.data.data.repository.labels.edges.forEach((label) => {
 			labels.push(label.node);
